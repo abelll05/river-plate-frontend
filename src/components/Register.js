@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from '../api'; // Asegúrate de tener configurado api.js correctamente
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -20,27 +21,21 @@ const Register = () => {
     setError('');
 
     try {
-      const response = await fetch('https://river-plate-frontend.onrender.com/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      // Usar el cliente Axios configurado en api.js
+      const response = await api.post('/register', formData);
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.error || 'Error al registrarse');
-        return;
-      }
-
-      // Almacenar el token y redirigir al Home
-      localStorage.setItem('token', data.token); // Guarda el token
+      // Manejo exitoso del registro
+      localStorage.setItem('token', response.data.token); // Guarda el token en el localStorage
+      alert('Registro exitoso');
       navigate('/'); // Redirige al Home
     } catch (err) {
+      // Manejo de errores
       console.error('Error en el registro:', err);
-      setError('Ocurrió un error inesperado. Por favor, intenta de nuevo.');
+      if (err.response && err.response.data) {
+        setError(err.response.data.error || 'Error al registrarse.');
+      } else {
+        setError('Ocurrió un error inesperado. Por favor, intenta de nuevo.');
+      }
     }
   };
 
