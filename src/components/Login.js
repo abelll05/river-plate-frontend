@@ -15,8 +15,13 @@ const Login = ({ setIsAuthenticated }) => {
       setIsAuthenticated(true); // Cambia el estado global
       navigate('/'); // Redirige al Home
     } catch (error) {
-      console.error(error);
-      alert('Credenciales incorrectas');
+      console.error('Error en el login:', error);
+
+      if (error.response) {
+        alert(error.response.data.error || 'Error al iniciar sesión');
+      } else {
+        alert('No se pudo conectar con el servidor. Intenta nuevamente.');
+      }
     }
   };
 
@@ -40,7 +45,9 @@ const Login = ({ setIsAuthenticated }) => {
         />
         <button type="submit">Login</button>
       </form>
-      <button onClick={() => navigate('/register')}>Registrarse</button>
+      <p>
+        ¿No tienes cuenta? <button onClick={() => navigate('/register')}>Regístrate aquí</button>
+      </p>
     </div>
   );
 };
