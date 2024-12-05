@@ -20,24 +20,33 @@ const Register = () => {
     setError('');
 
     try {
-      const response = await fetch('https://river-plate-frontend.onrender.com/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        'https://river-plate-backend.onrender.com/api/register', // Cambié la URL al backend
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-      const data = await response.json();
+      // Verifica si la respuesta no es JSON (para evitar errores de parseo)
+      if (response.headers.get('Content-Type')?.includes('application/json')) {
+        const data = await response.json();
 
-      if (!response.ok) {
-        setError(data.error || 'Error al registrarse');
-        return;
+        if (!response.ok) {
+          setError(data.error || 'Error al registrarse');
+          return;
+        }
+
+        // Almacenar el token y redirigir al Home
+        localStorage.setItem('token', data.token);
+        alert('Registro exitoso');
+        navigate('/'); // Redirige al Home
+      } else {
+        setError('Error inesperado: la respuesta no es válida.');
       }
-
-      // Almacenar el token y redirigir al Home
-      localStorage.setItem('token', data.token); // Guarda el token
-      navigate('/'); // Redirige al Home
     } catch (err) {
       console.error('Error en el registro:', err);
       setError('Ocurrió un error inesperado. Por favor, intenta de nuevo.');
