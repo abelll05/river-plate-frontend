@@ -1,4 +1,3 @@
-// src/components/Socios.js
 import React from "react";
 import "./Socios.css";
 

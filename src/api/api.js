@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://river-plate-backend.onrender.com/api', // Cambia según tu entorno
+  baseURL: 'https://river-plate-backend.onrender.com/api', 
 });
 
-// Interceptor para incluir el token en las solicitudes protegidas
+
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');

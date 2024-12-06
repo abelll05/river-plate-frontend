@@ -1,6 +1,5 @@
-/* Navbar general styling */
 .navbar {
-    background-color: red; /* Fondo rojo para el navbar */
+    background-color: red; 
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -18,9 +17,9 @@
   .navbar-logo {
     color: white;
     font-size: 1.5rem;
-    font-weight: bold; /* Grosor del texto */
+    font-weight: bold; 
     text-decoration: none;
-    text-transform: uppercase; /* Texto en mayúsculas */
+    text-transform: uppercase; 
   }
   
   .navbar-menu {
@@ -36,35 +35,35 @@
   }
   
   .navbar-link {
-    color: white; /* Color por defecto para todos los enlaces */
+    color: white; 
     text-decoration: none;
     padding: 10px 15px;
-    font-size: 1rem; /* Tamaño de fuente uniforme */
-    font-weight: bold; /* Grosor del texto */
+    font-size: 1rem; 
+    font-weight: bold; 
     transition: color 0.3s ease, background-color 0.3s ease;
     border-radius: 5px;
-    text-transform: uppercase; /* Texto en mayúsculas */
+    text-transform: uppercase; 
   }
   
   .navbar-link:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente al hover */
-    color: lightgray; /* Color más claro al hover */
+    background-color: rgba(255, 255, 255, 0.2); 
+    color: lightgray; 
   }
   
-  /* Estilo específico para el enlace Logout */
+
   .navbar-logout {
-    color: black !important; /* Letra negra para Logout */
-    font-weight: bold; /* Grosor similar al logo */
+    color: black !important; 
+    font-weight: bold; 
   }
   
   .navbar-logout:hover {
-    color: red !important; /* Opcional: color rojo al hover */
-    background-color: rgba(0, 0, 0, 0.1); /* Fondo oscuro al hover */
+    color: red !important; 
+    background-color: rgba(0, 0, 0, 0.1); 
   }
   
-  /* Responsividad */
+
   
-  /* Para pantallas pequeñas, entre 320px y 768px */
+
   @media (max-width: 768px) {
     .navbar-menu {
       flex-direction: column;
@@ -77,7 +76,7 @@
     }
   }
   
-  /* Para pantallas medianas, entre 768px y 1024px */
+
   @media (min-width: 768px) and (max-width: 1024px) {
     .navbar-menu {
       flex-direction: row;
@@ -85,30 +84,30 @@
     }
   
     .navbar-link {
-      font-size: 1.1rem; /* Aumenta un poco el tamaño en pantallas medianas */
+      font-size: 1.1rem; 
     }
   }
   
-  /* Para pantallas grandes, mayores a 1024px */
+
   @media (min-width: 1024px) {
     .navbar-menu {
       flex-direction: row;
-      gap: 20px; /* Aumenta el espacio entre los elementos */
+      gap: 20px; 
     }
   
     .navbar-link {
-      font-size: 1.2rem; /* Aumenta el tamaño de los enlaces en pantallas grandes */
+      font-size: 1.2rem; 
     }
   }
   
-  /* Para pantallas muy grandes, hasta 2000px */
+
   @media (min-width: 1500px) {
     .navbar-menu {
-      gap: 30px; /* Mayor espacio entre los enlaces en pantallas grandes */
+      gap: 30px; 
     }
   
     .navbar-link {
-      font-size: 1.3rem; /* Ajusta el tamaño de los enlaces en pantallas muy grandes */
+      font-size: 1.3rem; 
     }
   }
   

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './Home.css'; // Asegúrate de tener el archivo CSS correspondiente para los estilos
+import './Home.css'; 
 
-// Importa las imágenes desde la carpeta src/assets
+
 import imagen1 from '../assets/imagen1.jpg';
 import imagen2 from '../assets/imagen2.jpg';
 import imagen3 from '../assets/imagen3.jpg';
@@ -15,7 +15,7 @@ const Home = () => {
         {/* Cuadro de Noticias 1 */}
         <div className="news-item">
           <img
-            src={imagen1}  // Usamos la imagen importada
+            src={imagen1} 
             alt="Noticia 1"
             className="news-image"
           />
@@ -29,7 +29,7 @@ const Home = () => {
         {/* Cuadro de Noticias 2 */}
         <div className="news-item">
           <img
-            src={imagen2}  // Usamos la imagen importada
+            src={imagen2}  
             alt="Noticia 2"
             className="news-image"
           />
@@ -43,7 +43,7 @@ const Home = () => {
         {/* Cuadro de Noticias 3 */}
         <div className="news-item">
           <img
-            src={imagen3}  // Usamos la imagen importada
+            src={imagen3}  
             alt="Noticia 3"
             className="news-image"
           />
@@ -54,7 +54,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Agrega más cuadros de noticias según sea necesario */}
+        {/* Mas noticias */}
       </div>
     </div>
   );

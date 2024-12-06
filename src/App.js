@@ -13,13 +13,13 @@ import Register from "./components/Register";
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Verificar si hay un token válido en localStorage al cargar la app
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      setIsAuthenticated(true); // Si hay un token, el usuario se considera logeado
+      setIsAuthenticated(true); 
     } else {
-      setIsAuthenticated(false); // Si no hay token, se fuerza el logout
+      setIsAuthenticated(false); 
     }
   }, []);
 
@@ -54,8 +54,8 @@ const App = () => {
                   to="/login"
                   replace
                   onClick={() => {
-                    localStorage.removeItem("token"); // Elimina el token
-                    setIsAuthenticated(false); // Cambia el estado a deslogueado
+                    localStorage.removeItem("token"); 
+                    setIsAuthenticated(false); 
                   }}
                 />
               }

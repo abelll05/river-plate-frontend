@@ -1,27 +1,25 @@
-/* src/components/Redes.css */
-
 .redes-container {
     padding: 20px;
     text-align: center;
     font-family: Arial, sans-serif;
-    background-image: url('../assets/madrid.jpg'); /* Fondo de pantalla */
+    background-image: url('../assets/madrid.jpg'); 
     background-size: cover;
     background-position: center;
-    min-height: 100vh; /* Asegura que el fondo cubra toda la altura */
-    color: white; /* Asegura que el texto sea visible */
+    min-height: 100vh; 
+    color: white; 
   }
   
   h1 {
     font-size: 2rem;
-    color: #d50032; /* Color rojo representativo de River */
+    color: #d50032; 
     margin-bottom: 20px;
-    text-transform: uppercase; /* Todo en mayúsculas */
-    font-size: 1.5rem; /* Ajuste en caso de cambio en la estructura */
+    text-transform: uppercase; 
+    font-size: 1.5rem; 
   }
   
   .redes-titulo {
-    color: #d50032; /* Rojo representativo de River */
-    border: 2px solid #d50032; /* Borde rojo */
+    color: #d50032; 
+    border: 2px solid #d50032; 
     padding: 10px;
     font-size: 2rem;
     font-weight: bold;
@@ -57,7 +55,7 @@
     width: 60px;
     height: 60px;
     margin-right: 15px;
-    border-radius: 50%; /* Hace las imágenes redondas */
+    border-radius: 50%; 
   }
   
   .redes-item h2 {
@@ -72,67 +70,67 @@
     margin: 0;
   }
   
-  /* Responsividad */
+
   
-  /* Para pantallas pequeñas, entre 320px y 768px */
+
   @media (max-width: 768px) {
     h1 {
-      font-size: 1.8rem; /* Ajusta el tamaño del título para pantallas pequeñas */
+      font-size: 1.8rem; 
     }
   
     .redes-titulo {
-      font-size: 1.5rem; /* Ajuste de tamaño para redes-titulo */
+      font-size: 1.5rem; 
     }
   
     .redes-grid {
-      flex-direction: column; /* Cambia a columna en pantallas pequeñas */
-      gap: 10px; /* Reduce el espacio entre elementos */
+      flex-direction: column; 
+      gap: 10px; 
     }
   
     .redes-item {
-      width: 100%; /* Hace que los items ocupen el 100% del ancho */
+      width: 100%; 
     }
   
     .redes-icon {
-      width: 50px; /* Reduce el tamaño del icono */
-      height: 50px; /* Reduce el tamaño del icono */
+      width: 50px; 
+      height: 50px; 
     }
   
     .redes-item h2 {
-      font-size: 1.3rem; /* Reducir el tamaño del título */
+      font-size: 1.3rem; 
     }
   
     .redes-item p {
-      font-size: 0.9rem; /* Reducir el tamaño del texto */
+      font-size: 0.9rem; 
     }
   }
   
-  /* Para pantallas medianas, entre 768px y 1024px */
+
   @media (min-width: 768px) and (max-width: 1024px) {
     .redes-item {
-      width: 45%; /* Reduce el tamaño a 45% en pantallas medianas */
+      width: 45%; 
     }
   
     .redes-item h2 {
-      font-size: 1.4rem; /* Ajuste de tamaño de h2 */
+      font-size: 1.4rem; 
     }
   }
   
-  /* Para pantallas grandes, mayores a 1024px */
+
   @media (min-width: 1024px) {
     .redes-item {
-      width: 30%; /* Tres items por fila en pantallas grandes */
+      width: 30%; 
     }
   
     .redes-item h2 {
-      font-size: 1.6rem; /* Aumentar el tamaño de los títulos */
+      font-size: 1.6rem; 
     }
   }
   
-  /* Para pantallas muy grandes, hasta 2000px */
+
   @media (min-width: 1500px) {
     .redes-item {
-      width: 23%; /* Cuatro items por fila en pantallas muy grandes */
+      width: 23%; 
     }
   }
   

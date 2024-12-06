@@ -1,5 +1,3 @@
-/* src/components/Historia.css */
-
 .historia-container {
   padding: 20px;
   font-family: Arial, sans-serif;
@@ -23,64 +21,64 @@ strong {
   font-weight: bold;
 }
 
-/* Responsividad */
 
-/* Para pantallas pequeñas, entre 320px y 768px */
+
+
 @media (max-width: 768px) {
   h1 {
-    font-size: 1.5rem; /* Reduce el tamaño del título en pantallas pequeñas */
+    font-size: 1.5rem; 
   }
 
   p {
-    font-size: 0.9rem; /* Reduce el tamaño de los párrafos */
+    font-size: 0.9rem; 
   }
 
   .historia-container {
-    padding: 15px; /* Reduce el padding para pantallas pequeñas */
+    padding: 15px; 
   }
 }
 
-/* Para pantallas medianas, entre 768px y 1024px */
+
 @media (min-width: 768px) and (max-width: 1024px) {
   h1 {
-    font-size: 1.8rem; /* Ajuste del tamaño del título */
+    font-size: 1.8rem; 
   }
 
   p {
-    font-size: 1rem; /* Mantiene el tamaño de los párrafos en pantallas medianas */
+    font-size: 1rem; 
   }
 
   .historia-container {
-    padding: 20px; /* Padding estándar para pantallas medianas */
+    padding: 20px; 
   }
 }
 
-/* Para pantallas grandes, mayores a 1024px */
+
 @media (min-width: 1024px) {
   h1 {
-    font-size: 2rem; /* Título más grande en pantallas grandes */
+    font-size: 2rem; 
   }
 
   p {
-    font-size: 1.1rem; /* Aumenta ligeramente el tamaño de los párrafos */
+    font-size: 1.1rem; 
   }
 
   .historia-container {
-    padding: 25px; /* Padding más amplio en pantallas grandes */
+    padding: 25px; 
   }
 }
 
-/* Para pantallas muy grandes, hasta 2000px */
+
 @media (min-width: 1500px) {
   h1 {
-    font-size: 2.5rem; /* Título aún más grande en pantallas muy grandes */
+    font-size: 2.5rem; 
   }
 
   p {
-    font-size: 1.2rem; /* Aumenta el tamaño de los párrafos en pantallas muy grandes */
+    font-size: 1.2rem; 
   }
 
   .historia-container {
-    padding: 30px; /* Padding máximo en pantallas grandes */
+    padding: 30px; 
   }
 }

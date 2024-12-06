@@ -1,4 +1,3 @@
-// src/components/Plantel.js
 import React from "react";
 import './Plantel.css';
 
@@ -47,7 +46,7 @@ const jugadores = [
 ];
 
 const Plantel = () => {
-  // Filtrar jugadores por posición
+
   const arqueros = jugadores.filter((jugador) => jugador.position === "Arquero");
   const defensores = jugadores.filter(
     (jugador) => jugador.position === "Defensor"

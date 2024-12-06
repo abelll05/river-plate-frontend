@@ -1,6 +1,6 @@
 import React from "react";
-import "./Redes.css"; // Archivo CSS para estilos
-import facebookIcon from "../assets/facebook.jpg"; // Asegúrate de tener esta imagen
+import "./Redes.css"; 
+import facebookIcon from "../assets/facebook.jpg"; 
 import tiktokIcon from "../assets/tiktok.jpg";
 import linkedinIcon from "../assets/linkedin.jpg";
 import twitterIcon from "../assets/twitter.jpg";

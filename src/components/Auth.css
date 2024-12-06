@@ -3,20 +3,20 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url('../assets/madrid.jpg'); /* Ruta relativa */
+  background-image: url('../assets/madrid.jpg'); 
   background-size: cover;
   background-position: center;
   font-family: Arial, sans-serif;
 }
 
 .auth-box {
-  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
+  background-color: rgba(255, 255, 255, 0.9); 
   padding: 20px 40px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   width: 350px;
   text-align: center;
-  max-width: 100%; /* Se adapta al tamaño de la pantalla */
+  max-width: 100%; 
 }
 
 .auth-box h2 {
@@ -76,28 +76,28 @@
   color: #ff0000;
 }
 
-/* Responsive Design */
 
-/* Para pantallas de 320px a 480px */
+
+
 @media (max-width: 480px) {
   .auth-box {
-    width: 90%; /* Ajusta el ancho del formulario */
+    width: 90%; 
     padding: 15px;
   }
 
   .auth-button {
-    font-size: 14px; /* Reducir el tamaño del botón */
+    font-size: 14px; 
   }
 
   .auth-form .form-group input {
-    font-size: 12px; /* Reducir tamaño de texto en el input */
+    font-size: 12px; 
   }
 }
 
-/* Para pantallas de 481px a 768px */
+
 @media (max-width: 768px) {
   .auth-box {
-    width: 80%; /* Ajustar el tamaño para pantallas medianas */
+    width: 80%; 
     padding: 20px;
   }
 
@@ -106,10 +106,10 @@
   }
 }
 
-/* Para pantallas grandes de 1024px a 2000px */
+
 @media (min-width: 1024px) {
   .auth-box {
-    width: 350px; /* Mantener el tamaño del formulario en pantallas grandes */
+    width: 350px; 
     padding: 20px;
   }
 }

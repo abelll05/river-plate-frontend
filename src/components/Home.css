@@ -1,25 +1,23 @@
-/* src/components/Home.css */
-
 .home-container {
   padding: 20px;
   text-align: center;
-  background-image: url('../assets/madrid.jpg'); /* Fondo de pantalla */
+  background-image: url('../assets/madrid.jpg'); 
   background-size: cover;
   background-position: center;
-  min-height: 100vh; /* Asegura que el fondo cubra toda la altura */
-  color: white; /* Asegura que el texto sea visible */
+  min-height: 100vh; 
+  color: white; 
 }
 
 h1 {
   font-size: 2rem;
   color: #fff;
-  text-transform: uppercase; /* Todo en mayúsculas */
-  font-size: 1.5rem; /* Aumenta el tamaño de la fuente */
+  text-transform: uppercase; 
+  font-size: 1.5rem; 
 }
 
 .bienvenidos {
-  color: #d50032; /* Rojo representativo de River */
-  border: 2px solid #d50032; /* Borde rojo */
+  color: #d50032; 
+  border: 2px solid #d50032; 
   padding: 10px;
   font-size: 2rem;
   font-weight: bold;
@@ -40,7 +38,7 @@ h1 {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff; /* Asegura que el fondo de cada cuadro sea blanco */
+  background-color: #fff; 
 }
 
 .news-image {
@@ -51,7 +49,7 @@ h1 {
 
 .news-content {
   padding: 15px;
-  background-color: #fff; /* Completa el cuadro de noticia con fondo blanco */
+  background-color: #fff; 
 }
 
 .news-content h3 {
@@ -65,16 +63,16 @@ h1 {
   margin: 10px 0;
 }
 
-/* Eliminar "Leer más" */
+
 .news-link {
-  display: none; /* Elimina el enlace de "Leer más" */
+  display: none; 
 }
 
 .news-link:hover {
   color: #cc0000;
 }
 
-/* Estilos generales para pantallas grandes */
+
 body {
   font-size: 16px;
 }
@@ -84,7 +82,7 @@ body {
   justify-content: space-between;
 }
 
-/* Para pantallas pequeñas, entre 320px y 768px */
+
 @media screen and (max-width: 768px) {
   .navbar-menu {
     flex-direction: column;
@@ -101,14 +99,14 @@ body {
   }
 
   .news-grid {
-    grid-template-columns: 1fr; /* Una sola columna para noticias */
+    grid-template-columns: 1fr; 
   }
 }
 
-/* Para pantallas medianas, entre 768px y 1024px */
+
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .news-grid {
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    grid-template-columns: repeat(2, 1fr); 
   }
 
   .navbar-link {
@@ -116,10 +114,10 @@ body {
   }
 }
 
-/* Para pantallas grandes, mayores a 1024px */
+
 @media screen and (min-width: 1024px) {
   .news-grid {
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    grid-template-columns: repeat(3, 1fr); 
   }
 
   .navbar-link {
@@ -127,9 +125,9 @@ body {
   }
 }
 
-/* Para pantallas muy grandes, hasta 2000px */
+
 @media screen and (min-width: 1500px) {
   .news-grid {
-    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+    grid-template-columns: repeat(4, 1fr);
   }
 }

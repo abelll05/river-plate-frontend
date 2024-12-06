@@ -1,5 +1,5 @@
 import React from "react";
-import './Historia.css'; // Asegúrate de tener un archivo CSS para los estilos
+import './Historia.css'; 
 
 const Historia = () => {
   return (

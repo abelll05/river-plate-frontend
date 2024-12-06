@@ -1,5 +1,3 @@
-/* src/components/Estadio.css */
-
 .acceso-container {
     padding: 20px;
     text-align: center;
@@ -32,101 +30,99 @@
     font-weight: bold;
   }
   
-  /* Responsividad */
-  
-  /* Para pantallas pequeñas, entre 320px y 768px */
+
   @media (max-width: 768px) {
     .acceso-container {
-      padding: 15px; /* Reducir el padding para pantallas pequeñas */
+      padding: 15px; 
     }
   
     h1 {
-      font-size: 1.8rem; /* Ajusta el tamaño del título en pantallas pequeñas */
+      font-size: 1.8rem; 
     }
   
     .acceso-section {
-      margin: 15px 0; /* Ajuste del margen de las secciones */
-      padding: 10px; /* Reducir padding de las secciones */
+      margin: 15px 0; 
+      padding: 10px; 
     }
   
     .acceso-section h2 {
-      font-size: 1.3rem; /* Reducir el tamaño del subtítulo */
+      font-size: 1.3rem; 
     }
   
     .acceso-section p {
-      font-size: 0.9rem; /* Reducir el tamaño del texto de los párrafos */
+      font-size: 0.9rem; 
     }
   }
   
-  /* Para pantallas medianas, entre 768px y 1024px */
+
   @media (min-width: 768px) and (max-width: 1024px) {
     .acceso-container {
-      padding: 20px; /* Ajustar padding para pantallas medianas */
+      padding: 20px; 
     }
   
     h1 {
-      font-size: 2rem; /* Tamaño de título adecuado para pantallas medianas */
+      font-size: 2rem; 
     }
   
     .acceso-section {
-      margin: 20px 0; /* Margen normal para pantallas medianas */
-      padding: 15px; /* Padding ajustado para pantallas medianas */
+      margin: 20px 0; 
+      padding: 15px; 
     }
   
     .acceso-section h2 {
-      font-size: 1.4rem; /* Ajustar el tamaño del subtítulo */
+      font-size: 1.4rem; 
     }
   
     .acceso-section p {
-      font-size: 1rem; /* Fuente estándar para párrafos */
+      font-size: 1rem; 
     }
   }
   
-  /* Para pantallas grandes, mayores a 1024px */
+
   @media (min-width: 1024px) {
     .acceso-container {
-      padding: 30px; /* Aumentar el padding para pantallas grandes */
+      padding: 30px; 
     }
   
     h1 {
-      font-size: 2.5rem; /* Aumentar tamaño del título para pantallas grandes */
+      font-size: 2.5rem; 
     }
   
     .acceso-section {
-      margin: 25px 0; /* Mayor margen entre secciones */
-      padding: 20px; /* Aumento de padding */
+      margin: 25px 0; 
+      padding: 20px; 
     }
   
     .acceso-section h2 {
-      font-size: 1.6rem; /* Título más grande en pantallas grandes */
+      font-size: 1.6rem; 
     }
   
     .acceso-section p {
-      font-size: 1.1rem; /* Texto un poco más grande para pantallas grandes */
+      font-size: 1.1rem; 
     }
   }
   
-  /* Para pantallas muy grandes, hasta 2000px */
+
   @media (min-width: 1500px) {
     .acceso-container {
-      padding: 40px; /* Aumenta aún más el padding */
+      padding: 40px; 
     }
   
     h1 {
-      font-size: 3rem; /* Aumentar aún más el tamaño del título */
+      font-size: 3rem; 
     }
   
     .acceso-section {
-      margin: 30px 0; /* Espaciado aún mayor entre secciones */
-      padding: 25px; /* Aumento de padding */
+      margin: 30px 0; 
+      padding: 25px; 
     }
   
     .acceso-section h2 {
-      font-size: 1.8rem; /* Subtítulos más grandes en pantallas muy grandes */
+      font-size: 1.8rem; 
     }
   
     .acceso-section p {
-      font-size: 1.2rem; /* Aumentar el tamaño del texto en pantallas muy grandes */
+      font-size: 1.2rem; 
     }
   }
   

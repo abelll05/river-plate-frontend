@@ -1,5 +1,5 @@
 import React from "react";
-import './Estadio.css';  // Esta línea importa los estilos CSS
+import './Estadio.css';  
 
 
 const Estadio = () => {
