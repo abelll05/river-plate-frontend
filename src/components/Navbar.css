@@ -1,0 +1,77 @@
+/* Navbar general styling */
+.navbar {
+    background-color: red; /* Fondo rojo para el navbar */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .navbar-logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold; /* Grosor del texto */
+    text-decoration: none;
+    text-transform: uppercase; /* Texto en mayúsculas */
+  }
+  
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-item {
+    display: inline-block;
+  }
+  
+  .navbar-link {
+    color: white; /* Color por defecto para todos los enlaces */
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 1rem; /* Tamaño de fuente uniforme */
+    font-weight: bold; /* Grosor del texto */
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 5px;
+    text-transform: uppercase; /* Texto en mayúsculas */
+  }
+  
+  .navbar-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente al hover */
+    color: lightgray; /* Color más claro al hover */
+  }
+  
+  /* Estilo específico para el enlace Logout */
+  .navbar-logout {
+    color: black !important; /* Letra negra para Logout */
+    font-weight: bold; /* Grosor similar al logo */
+  }
+  
+  .navbar-logout:hover {
+    color: red !important; /* Opcional: color rojo al hover */
+    background-color: rgba(0, 0, 0, 0.1); /* Fondo oscuro al hover */
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .navbar-menu {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .navbar-link {
+      display: block;
+      text-align: center;
+    }
+  }
+  

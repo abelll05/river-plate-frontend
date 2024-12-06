@@ -1,0 +1,58 @@
+/* src/components/Socios.css */
+.socios-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .socios-title {
+    text-align: center;
+    color: #aa0000;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .socios-section {
+    margin-bottom: 30px;
+  }
+  
+  .socios-section-title {
+    font-size: 1.5rem;
+    color: #aa0000;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #aa0000;
+    padding-bottom: 5px;
+  }
+  
+  .socios-list {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #333;
+    font-size: 1rem;
+  }
+  
+  .socios-important-list {
+    list-style-type: decimal;
+    margin-left: 20px;
+    color: #555;
+    font-size: 1rem;
+  }
+  
+  .socios-benefits {
+    margin-top: 10px;
+  }
+  
+  .socios-benefit-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  .socios-benefit-text {
+    font-size: 1rem;
+    color: #555;
+    margin-left: 10px;
+  }
+  

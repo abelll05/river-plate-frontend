@@ -1,0 +1,21 @@
+/* src/components/Plantel.css */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    color: #aa0000;
+    margin-top: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  

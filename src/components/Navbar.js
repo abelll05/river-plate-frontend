@@ -1,40 +1,51 @@
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import './Navbar.css';
 
-const Navbar = ({ handleLogout }) => {
+const Navbar = ({ setIsAuthenticated }) => {
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
+  };
+
   return (
-    <nav style={styles.navbar}>
-      <Link to="/" style={styles.link}>Home</Link>
-      <Link to="/historia" style={styles.link}>Historia</Link>
-      <Link to="/plantel" style={styles.link}>Plantel</Link>
-      <Link to="/socios" style={styles.link}>Socios</Link>
-      <Link to="/accesos" style={styles.link}>Accesos al Estadio</Link>
-      <Link to="/redes" style={styles.link}>Redes</Link>
-      <button onClick={handleLogout} style={styles.logoutButton}>Logout</button>
+    <nav className="navbar">
+      <div className="navbar-container">
+        <Link to="/" className="navbar-logo">
+          RIVER PLATE
+        </Link>
+        <ul className="navbar-menu">
+          <li className="navbar-item">
+            <Link to="/" className="navbar-link">Home</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/historia" className="navbar-link">Historia</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/plantel" className="navbar-link">Plantel</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/socios" className="navbar-link">Socios</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/accesos-estadio" className="navbar-link">Accesos al Estadio</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/redes" className="navbar-link">Redes</Link>
+          </li>
+          <li className="navbar-item">
+            <Link
+              to="/login"
+              className="navbar-link navbar-logout"
+              onClick={handleLogout}
+            >
+              Logout
+            </Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
-};
-
-const styles = {
-  navbar: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    padding: '10px',
-    background: '#d81f26',
-    color: '#fff',
-  },
-  link: {
-    textDecoration: 'none',
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  logoutButton: {
-    background: '#fff',
-    color: '#d81f26',
-    border: 'none',
-    padding: '5px 10px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-  },
 };
 
 export default Navbar;

@@ -1,0 +1,94 @@
+/* src/components/Estadio.css */
+
+.acceso-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #000000;
+  }
+  
+  .acceso-section {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 15px;
+  }
+  
+  .acceso-section h2 {
+    color: #000000;
+    font-size: 1.5rem;
+  }
+  
+  .acceso-section p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .acceso-section strong {
+    font-weight: bold;
+  }
+  
+  /* Estilos generales para pantallas grandes */
+body {
+    font-size: 16px;
+  }
+  
+  .navbar-menu {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Para pantallas pequeñas, entre 320px y 768px */
+  @media screen and (max-width: 768px) {
+    .navbar-menu {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navbar-logo {
+      font-size: 1.5rem;
+    }
+  
+    .navbar-link {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+  
+    .news-grid {
+      grid-template-columns: 1fr; /* Una sola columna para noticias */
+    }
+  }
+  
+  /* Para pantallas medianas, entre 768px y 1024px */
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .news-grid {
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    }
+  
+    .navbar-link {
+      font-size: 1.4rem;
+    }
+  }
+  
+  /* Para pantallas grandes, mayores a 1024px */
+  @media screen and (min-width: 1024px) {
+    .news-grid {
+      grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    }
+  
+    .navbar-link {
+      font-size: 1.6rem;
+    }
+  }
+  
+  /* Para pantallas muy grandes, hasta 2000px */
+  @media screen and (min-width: 1500px) {
+    .news-grid {
+      grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+    }
+  }
+  

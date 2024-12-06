@@ -1,0 +1,136 @@
+/* src/components/Home.css */
+
+.home-container {
+    padding: 20px;
+    text-align: center;
+    background-image: url('../assets/madrid.jpg'); /* Fondo de pantalla */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Asegura que el fondo cubra toda la altura */
+    color: white; /* Asegura que el texto sea visible */
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #fff;
+    text-transform: uppercase; /* Todo en mayúsculas */
+    font-size: 1.5rem; /* Aumenta el tamaño de la fuente */
+  }
+  
+  .bienvenidos {
+    color: #d50032; /* Rojo representativo de River */
+    border: 2px solid #d50032; /* Borde rojo */
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .news-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Asegura que el fondo de cada cuadro sea blanco */
+  }
+  
+  .news-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .news-content {
+    padding: 15px;
+    background-color: #fff; /* Completa el cuadro de noticia con fondo blanco */
+  }
+  
+  .news-content h3 {
+    font-size: 1.5rem;
+    color: #000000;
+  }
+  
+  .news-content p {
+    color: #555;
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+  /* Eliminar "Leer más" */
+  .news-link {
+    display: none; /* Elimina el enlace de "Leer más" */
+  }
+  
+  .news-link:hover {
+    color: #cc0000;
+  }
+  
+  /* Estilos generales para pantallas grandes */
+  body {
+    font-size: 16px;
+  }
+  
+  .navbar-menu {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Para pantallas pequeñas, entre 320px y 768px */
+  @media screen and (max-width: 768px) {
+    .navbar-menu {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navbar-logo {
+      font-size: 1.5rem;
+    }
+  
+    .navbar-link {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+  
+    .news-grid {
+      grid-template-columns: 1fr; /* Una sola columna para noticias */
+    }
+  }
+  
+  /* Para pantallas medianas, entre 768px y 1024px */
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .news-grid {
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    }
+  
+    .navbar-link {
+      font-size: 1.4rem;
+    }
+  }
+  
+  /* Para pantallas grandes, mayores a 1024px */
+  @media screen and (min-width: 1024px) {
+    .news-grid {
+      grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    }
+  
+    .navbar-link {
+      font-size: 1.6rem;
+    }
+  }
+  
+  /* Para pantallas muy grandes, hasta 2000px */
+  @media screen and (min-width: 1500px) {
+    .news-grid {
+      grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+    }
+  }
+  

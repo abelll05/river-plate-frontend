@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Auth.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -7,21 +8,17 @@ const Register = () => {
     email: '',
     password: '',
   });
-  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-
     try {
       const response = await fetch(
-        'https://river-plate-backend.onrender.com/api/register', // Cambié la URL al backend
+        'https://river-plate-backend.onrender.com/api/register',
         {
           method: 'POST',
           headers: {
@@ -30,66 +27,66 @@ const Register = () => {
           body: JSON.stringify(formData),
         }
       );
-
-      // Verifica si la respuesta no es JSON (para evitar errores de parseo)
-      if (response.headers.get('Content-Type')?.includes('application/json')) {
-        const data = await response.json();
-
-        if (!response.ok) {
-          setError(data.error || 'Error al registrarse');
-          return;
-        }
-
-        // Almacenar el token y redirigir al Home
-        localStorage.setItem('token', data.token);
-        alert('Registro exitoso');
-        navigate('/'); // Redirige al Home
+      const data = await response.json();
+      if (response.ok) {
+        alert('Usuario registrado con éxito');
+        navigate('/login');
       } else {
-        setError('Error inesperado: la respuesta no es válida.');
+        alert(data.error || 'Error al registrarse');
       }
-    } catch (err) {
-      console.error('Error en el registro:', err);
-      setError('Ocurrió un error inesperado. Por favor, intenta de nuevo.');
+    } catch (error) {
+      console.error('Error al registrarse:', error);
+      alert('No se pudo conectar con el servidor. Intenta nuevamente.');
     }
   };
 
   return (
-    <div>
-      <h2>Registro</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre de usuario:</label>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Correo electrónico:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Contraseña:</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit">Registrar</button>
-      </form>
+    <div className="auth-container">
+      <div className="auth-box">
+        <h2>Register</h2>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="form-group">
+            <label>Nombre de Usuario</label>
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleInputChange}
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Correo Electrónico</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Contraseña</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              placeholder="Create a password"
+              required
+            />
+          </div>
+          <button type="submit" className="auth-button">Registrar</button>
+        </form>
+        <p className="auth-footer">
+          ¿Ya tienes cuenta?{' '}
+          <span className="auth-link" onClick={() => navigate('/login')}>
+            Inicia sesión aquí
+          </span>
+        </p>
+      </div>
     </div>
   );
 };

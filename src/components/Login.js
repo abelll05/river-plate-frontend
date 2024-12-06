@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/api';
+import './Auth.css';
 
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
@@ -11,11 +12,12 @@ const Login = ({ setIsAuthenticated }) => {
     e.preventDefault();
     try {
       const response = await api.post('/login', { email, password });
-      localStorage.setItem('token', response.data.token); // Guarda el token
-      setIsAuthenticated(true); // Cambia el estado global
-      navigate('/'); // Redirige al home
+      localStorage.setItem('token', response.data.token);
+      setIsAuthenticated(true);
+      navigate('/');
     } catch (error) {
       console.error('Error en el login:', error);
+
       if (error.response) {
         alert(error.response.data.error || 'Error al iniciar sesión');
       } else {
@@ -25,29 +27,39 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div>
-      <h2>Iniciar Sesión</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <label>Contraseña:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      <p>
-        ¿No tienes cuenta?{' '}
-        <button onClick={() => navigate('/register')}>Regístrate aquí</button>
-      </p>
+    <div className="auth-container">
+      <div className="auth-box">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Contraseña</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <button type="submit" className="auth-button">Login</button>
+        </form>
+        <p className="auth-footer">
+          ¿No tienes cuenta?{' '}
+          <span className="auth-link" onClick={() => navigate('/register')}>
+            Regístrate aquí
+          </span>
+        </p>
+      </div>
     </div>
   );
 };

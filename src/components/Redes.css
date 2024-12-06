@@ -1,0 +1,134 @@
+/* src/components/Redes.css */
+
+.redes-container {
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-image: url('../assets/madrid.jpg'); /* Fondo de pantalla */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Asegura que el fondo cubra toda la altura */
+    color: white; /* Asegura que el texto sea visible */
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #d50032; /* Color rojo representativo de River */
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Todo en mayúsculas */
+    font-size: 1.5rem; /* Aumenta el tamaño de la fuente */
+  }
+  
+  .redes-titulo {
+    color: #d50032; /* Rojo representativo de River */
+    border: 2px solid #d50032; /* Borde rojo */
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  
+  .redes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .redes-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 10px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .redes-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .redes-icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    border-radius: 50%; /* Hace las imágenes redondas */
+  }
+  
+  .redes-item h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+  }
+  
+  .redes-item p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+  }
+  
+  /* Estilos generales para pantallas grandes */
+body {
+    font-size: 16px;
+  }
+  
+  .navbar-menu {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Para pantallas pequeñas, entre 320px y 768px */
+  @media screen and (max-width: 768px) {
+    .navbar-menu {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navbar-logo {
+      font-size: 1.5rem;
+    }
+  
+    .navbar-link {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+  
+    .news-grid {
+      grid-template-columns: 1fr; /* Una sola columna para noticias */
+    }
+  }
+  
+  /* Para pantallas medianas, entre 768px y 1024px */
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .news-grid {
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    }
+  
+    .navbar-link {
+      font-size: 1.4rem;
+    }
+  }
+  
+  /* Para pantallas grandes, mayores a 1024px */
+  @media screen and (min-width: 1024px) {
+    .news-grid {
+      grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    }
+  
+    .navbar-link {
+      font-size: 1.6rem;
+    }
+  }
+  
+  /* Para pantallas muy grandes, hasta 2000px */
+  @media screen and (min-width: 1500px) {
+    .news-grid {
+      grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+    }
+  }
+  
