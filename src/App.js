@@ -11,7 +11,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // Obtener el token del localStorage y verificar si está presente
+  const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token") ? true : false);
 
   // Verificar si hay un token válido en localStorage al cargar la app
   useEffect(() => {
@@ -19,27 +20,20 @@ const App = () => {
     if (token) {
       setIsAuthenticated(true); // Si hay un token, el usuario se considera logeado
     } else {
-      setIsAuthenticated(false); // Si no hay token, se fuerza el logout
+      setIsAuthenticated(false); // Si no hay token, se forza el logout
     }
-  }, []);
+  }, []); // Solo se ejecuta una vez, cuando la app se monta
 
   return (
     <Router>
       {isAuthenticated && <Navbar setIsAuthenticated={setIsAuthenticated} />}
       <Routes>
-        {!isAuthenticated ? (
-          <>
-            <Route
-              path="/login"
-              element={<Login setIsAuthenticated={setIsAuthenticated} />}
-            />
-            <Route
-              path="/register"
-              element={<Register setIsAuthenticated={setIsAuthenticated} />}
-            />
-            <Route path="*" element={<Navigate to="/login" replace />} />
-          </>
-        ) : (
+        {/* Rutas públicas */}
+        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+        <Route path="/register" element={<Register setIsAuthenticated={setIsAuthenticated} />} />
+
+        {/* Rutas protegidas */}
+        {isAuthenticated ? (
           <>
             <Route path="/" element={<Home />} />
             <Route path="/historia" element={<Historia />} />
@@ -62,6 +56,8 @@ const App = () => {
             />
             <Route path="*" element={<Navigate to="/" replace />} />
           </>
+        ) : (
+          <Route path="*" element={<Navigate to="/login" replace />} />
         )}
       </Routes>
     </Router>
