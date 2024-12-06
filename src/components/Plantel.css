@@ -1,21 +1,99 @@
 /* src/components/Plantel.css */
+
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #aa0000;
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Responsividad */
+
+/* Para pantallas pequeñas, entre 320px y 768px */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem; /* Reduce el tamaño del título en pantallas pequeñas */
   }
-  
+
   h2 {
-    color: #aa0000;
-    margin-top: 20px;
+    font-size: 1.3rem; /* Ajuste de tamaño para el subtítulo en pantallas pequeñas */
   }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
+
   li {
-    padding: 5px 0;
-    border-bottom: 1px solid #ddd;
+    padding: 10px 0; /* Aumenta el padding de los items para mejor clicabilidad */
   }
-  
+
+  .plantel-container {
+    padding: 15px; /* Agrega un padding para que el contenido no esté pegado a los bordes */
+  }
+}
+
+/* Para pantallas medianas, entre 768px y 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  h1 {
+    font-size: 1.8rem; /* Título más grande en pantallas medianas */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Ajuste de tamaño para el subtítulo */
+  }
+
+  li {
+    padding: 8px 0; /* Padding ajustado para mejor legibilidad */
+  }
+
+  .plantel-container {
+    padding: 20px; /* Padding estándar para pantallas medianas */
+  }
+}
+
+/* Para pantallas grandes, mayores a 1024px */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 2rem; /* Título grande en pantallas grandes */
+  }
+
+  h2 {
+    font-size: 1.7rem; /* Título del subtítulo más grande en pantallas grandes */
+  }
+
+  li {
+    padding: 10px 0; /* Padding más amplio para mejor presentación */
+  }
+
+  .plantel-container {
+    padding: 30px; /* Padding más amplio en pantallas grandes */
+  }
+}
+
+/* Para pantallas muy grandes, hasta 2000px */
+@media (min-width: 1500px) {
+  h1 {
+    font-size: 2.5rem; /* Título aún más grande para pantallas muy grandes */
+  }
+
+  h2 {
+    font-size: 2rem; /* Subtítulo más grande */
+  }
+
+  li {
+    padding: 12px 0; /* Padding aún más grande para mayor comodidad */
+  }
+
+  .plantel-container {
+    padding: 40px; /* Padding máximo en pantallas muy grandes */
+  }
+}

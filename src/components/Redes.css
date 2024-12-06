@@ -16,7 +16,7 @@
     color: #d50032; /* Color rojo representativo de River */
     margin-bottom: 20px;
     text-transform: uppercase; /* Todo en mayúsculas */
-    font-size: 1.5rem; /* Aumenta el tamaño de la fuente */
+    font-size: 1.5rem; /* Ajuste en caso de cambio en la estructura */
   }
   
   .redes-titulo {
@@ -72,63 +72,67 @@
     margin: 0;
   }
   
-  /* Estilos generales para pantallas grandes */
-body {
-    font-size: 16px;
-  }
-  
-  .navbar-menu {
-    display: flex;
-    justify-content: space-between;
-  }
+  /* Responsividad */
   
   /* Para pantallas pequeñas, entre 320px y 768px */
-  @media screen and (max-width: 768px) {
-    .navbar-menu {
-      flex-direction: column;
-      align-items: center;
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.8rem; /* Ajusta el tamaño del título para pantallas pequeñas */
     }
   
-    .navbar-logo {
-      font-size: 1.5rem;
+    .redes-titulo {
+      font-size: 1.5rem; /* Ajuste de tamaño para redes-titulo */
     }
   
-    .navbar-link {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
+    .redes-grid {
+      flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+      gap: 10px; /* Reduce el espacio entre elementos */
     }
   
-    .news-grid {
-      grid-template-columns: 1fr; /* Una sola columna para noticias */
+    .redes-item {
+      width: 100%; /* Hace que los items ocupen el 100% del ancho */
+    }
+  
+    .redes-icon {
+      width: 50px; /* Reduce el tamaño del icono */
+      height: 50px; /* Reduce el tamaño del icono */
+    }
+  
+    .redes-item h2 {
+      font-size: 1.3rem; /* Reducir el tamaño del título */
+    }
+  
+    .redes-item p {
+      font-size: 0.9rem; /* Reducir el tamaño del texto */
     }
   }
   
   /* Para pantallas medianas, entre 768px y 1024px */
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .news-grid {
-      grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .redes-item {
+      width: 45%; /* Reduce el tamaño a 45% en pantallas medianas */
     }
   
-    .navbar-link {
-      font-size: 1.4rem;
+    .redes-item h2 {
+      font-size: 1.4rem; /* Ajuste de tamaño de h2 */
     }
   }
   
   /* Para pantallas grandes, mayores a 1024px */
-  @media screen and (min-width: 1024px) {
-    .news-grid {
-      grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  @media (min-width: 1024px) {
+    .redes-item {
+      width: 30%; /* Tres items por fila en pantallas grandes */
     }
   
-    .navbar-link {
-      font-size: 1.6rem;
+    .redes-item h2 {
+      font-size: 1.6rem; /* Aumentar el tamaño de los títulos */
     }
   }
   
   /* Para pantallas muy grandes, hasta 2000px */
-  @media screen and (min-width: 1500px) {
-    .news-grid {
-      grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+  @media (min-width: 1500px) {
+    .redes-item {
+      width: 23%; /* Cuatro items por fila en pantallas muy grandes */
     }
   }
   

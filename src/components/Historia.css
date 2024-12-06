@@ -1,25 +1,86 @@
 /* src/components/Historia.css */
 
 .historia-container {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-  }
-  
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+/* Responsividad */
+
+/* Para pantallas pequeñas, entre 320px y 768px */
+@media (max-width: 768px) {
   h1 {
-    font-size: 2rem;
-    color: #003366;
-    margin-bottom: 20px;
-    text-align: center;
+    font-size: 1.5rem; /* Reduce el tamaño del título en pantallas pequeñas */
   }
-  
+
   p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 15px;
+    font-size: 0.9rem; /* Reduce el tamaño de los párrafos */
   }
-  
-  strong {
-    font-weight: bold;
+
+  .historia-container {
+    padding: 15px; /* Reduce el padding para pantallas pequeñas */
   }
-  
+}
+
+/* Para pantallas medianas, entre 768px y 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  h1 {
+    font-size: 1.8rem; /* Ajuste del tamaño del título */
+  }
+
+  p {
+    font-size: 1rem; /* Mantiene el tamaño de los párrafos en pantallas medianas */
+  }
+
+  .historia-container {
+    padding: 20px; /* Padding estándar para pantallas medianas */
+  }
+}
+
+/* Para pantallas grandes, mayores a 1024px */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 2rem; /* Título más grande en pantallas grandes */
+  }
+
+  p {
+    font-size: 1.1rem; /* Aumenta ligeramente el tamaño de los párrafos */
+  }
+
+  .historia-container {
+    padding: 25px; /* Padding más amplio en pantallas grandes */
+  }
+}
+
+/* Para pantallas muy grandes, hasta 2000px */
+@media (min-width: 1500px) {
+  h1 {
+    font-size: 2.5rem; /* Título aún más grande en pantallas muy grandes */
+  }
+
+  p {
+    font-size: 1.2rem; /* Aumenta el tamaño de los párrafos en pantallas muy grandes */
+  }
+
+  .historia-container {
+    padding: 30px; /* Padding máximo en pantallas grandes */
+  }
+}

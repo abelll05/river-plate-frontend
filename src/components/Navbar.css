@@ -63,6 +63,8 @@
   }
   
   /* Responsividad */
+  
+  /* Para pantallas pequeñas, entre 320px y 768px */
   @media (max-width: 768px) {
     .navbar-menu {
       flex-direction: column;
@@ -72,6 +74,41 @@
     .navbar-link {
       display: block;
       text-align: center;
+    }
+  }
+  
+  /* Para pantallas medianas, entre 768px y 1024px */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .navbar-menu {
+      flex-direction: row;
+      gap: 15px;
+    }
+  
+    .navbar-link {
+      font-size: 1.1rem; /* Aumenta un poco el tamaño en pantallas medianas */
+    }
+  }
+  
+  /* Para pantallas grandes, mayores a 1024px */
+  @media (min-width: 1024px) {
+    .navbar-menu {
+      flex-direction: row;
+      gap: 20px; /* Aumenta el espacio entre los elementos */
+    }
+  
+    .navbar-link {
+      font-size: 1.2rem; /* Aumenta el tamaño de los enlaces en pantallas grandes */
+    }
+  }
+  
+  /* Para pantallas muy grandes, hasta 2000px */
+  @media (min-width: 1500px) {
+    .navbar-menu {
+      gap: 30px; /* Mayor espacio entre los enlaces en pantallas grandes */
+    }
+  
+    .navbar-link {
+      font-size: 1.3rem; /* Ajusta el tamaño de los enlaces en pantallas muy grandes */
     }
   }
   

@@ -32,63 +32,101 @@
     font-weight: bold;
   }
   
-  /* Estilos generales para pantallas grandes */
-body {
-    font-size: 16px;
-  }
-  
-  .navbar-menu {
-    display: flex;
-    justify-content: space-between;
-  }
+  /* Responsividad */
   
   /* Para pantallas pequeñas, entre 320px y 768px */
-  @media screen and (max-width: 768px) {
-    .navbar-menu {
-      flex-direction: column;
-      align-items: center;
+  @media (max-width: 768px) {
+    .acceso-container {
+      padding: 15px; /* Reducir el padding para pantallas pequeñas */
     }
   
-    .navbar-logo {
-      font-size: 1.5rem;
+    h1 {
+      font-size: 1.8rem; /* Ajusta el tamaño del título en pantallas pequeñas */
     }
   
-    .navbar-link {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
+    .acceso-section {
+      margin: 15px 0; /* Ajuste del margen de las secciones */
+      padding: 10px; /* Reducir padding de las secciones */
     }
   
-    .news-grid {
-      grid-template-columns: 1fr; /* Una sola columna para noticias */
+    .acceso-section h2 {
+      font-size: 1.3rem; /* Reducir el tamaño del subtítulo */
+    }
+  
+    .acceso-section p {
+      font-size: 0.9rem; /* Reducir el tamaño del texto de los párrafos */
     }
   }
   
   /* Para pantallas medianas, entre 768px y 1024px */
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .news-grid {
-      grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .acceso-container {
+      padding: 20px; /* Ajustar padding para pantallas medianas */
     }
   
-    .navbar-link {
-      font-size: 1.4rem;
+    h1 {
+      font-size: 2rem; /* Tamaño de título adecuado para pantallas medianas */
+    }
+  
+    .acceso-section {
+      margin: 20px 0; /* Margen normal para pantallas medianas */
+      padding: 15px; /* Padding ajustado para pantallas medianas */
+    }
+  
+    .acceso-section h2 {
+      font-size: 1.4rem; /* Ajustar el tamaño del subtítulo */
+    }
+  
+    .acceso-section p {
+      font-size: 1rem; /* Fuente estándar para párrafos */
     }
   }
   
   /* Para pantallas grandes, mayores a 1024px */
-  @media screen and (min-width: 1024px) {
-    .news-grid {
-      grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  @media (min-width: 1024px) {
+    .acceso-container {
+      padding: 30px; /* Aumentar el padding para pantallas grandes */
     }
   
-    .navbar-link {
-      font-size: 1.6rem;
+    h1 {
+      font-size: 2.5rem; /* Aumentar tamaño del título para pantallas grandes */
+    }
+  
+    .acceso-section {
+      margin: 25px 0; /* Mayor margen entre secciones */
+      padding: 20px; /* Aumento de padding */
+    }
+  
+    .acceso-section h2 {
+      font-size: 1.6rem; /* Título más grande en pantallas grandes */
+    }
+  
+    .acceso-section p {
+      font-size: 1.1rem; /* Texto un poco más grande para pantallas grandes */
     }
   }
   
   /* Para pantallas muy grandes, hasta 2000px */
-  @media screen and (min-width: 1500px) {
-    .news-grid {
-      grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+  @media (min-width: 1500px) {
+    .acceso-container {
+      padding: 40px; /* Aumenta aún más el padding */
+    }
+  
+    h1 {
+      font-size: 3rem; /* Aumentar aún más el tamaño del título */
+    }
+  
+    .acceso-section {
+      margin: 30px 0; /* Espaciado aún mayor entre secciones */
+      padding: 25px; /* Aumento de padding */
+    }
+  
+    .acceso-section h2 {
+      font-size: 1.8rem; /* Subtítulos más grandes en pantallas muy grandes */
+    }
+  
+    .acceso-section p {
+      font-size: 1.2rem; /* Aumentar el tamaño del texto en pantallas muy grandes */
     }
   }
   

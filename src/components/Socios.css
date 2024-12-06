@@ -56,3 +56,93 @@
     margin-left: 10px;
   }
   
+  /* Responsividad */
+  
+  /* Para pantallas pequeñas, entre 320px y 768px */
+  @media (max-width: 768px) {
+    .socios-title {
+      font-size: 1.5rem; /* Ajusta el tamaño del título para pantallas pequeñas */
+    }
+  
+    .socios-section-title {
+      font-size: 1.3rem; /* Ajusta el tamaño del subtítulo */
+    }
+  
+    .socios-list,
+    .socios-important-list {
+      font-size: 0.9rem; /* Reduce el tamaño de fuente en listas para pantallas pequeñas */
+    }
+  
+    .socios-benefit-title {
+      font-size: 1rem; /* Ajuste de tamaño para el título de beneficios */
+    }
+  
+    .socios-benefit-text {
+      font-size: 0.9rem; /* Ajuste de tamaño para el texto de beneficios */
+    }
+  
+    .socios-container {
+      padding: 15px; /* Ajuste de padding para pantallas más pequeñas */
+    }
+  }
+  
+  /* Para pantallas medianas, entre 768px y 1024px */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .socios-title {
+      font-size: 1.7rem; /* Aumenta un poco el tamaño del título en pantallas medianas */
+    }
+  
+    .socios-section-title {
+      font-size: 1.4rem; /* Ajuste del subtítulo */
+    }
+  
+    .socios-list,
+    .socios-important-list {
+      font-size: 1rem; /* Tamaño de fuente adecuado para pantallas medianas */
+    }
+  
+    .socios-container {
+      padding: 20px; /* Padding adecuado para pantallas medianas */
+    }
+  }
+  
+  /* Para pantallas grandes, mayores a 1024px */
+  @media (min-width: 1024px) {
+    .socios-title {
+      font-size: 2rem; /* Título más grande para pantallas grandes */
+    }
+  
+    .socios-section-title {
+      font-size: 1.5rem; /* Subtítulo más grande */
+    }
+  
+    .socios-list,
+    .socios-important-list {
+      font-size: 1.1rem; /* Aumenta el tamaño de la fuente en listas */
+    }
+  
+    .socios-container {
+      padding: 30px; /* Padding más amplio para pantallas grandes */
+    }
+  }
+  
+  /* Para pantallas muy grandes, hasta 2000px */
+  @media (min-width: 1500px) {
+    .socios-title {
+      font-size: 2.5rem; /* Aumenta el tamaño del título para pantallas muy grandes */
+    }
+  
+    .socios-section-title {
+      font-size: 1.8rem; /* Aumenta el tamaño del subtítulo */
+    }
+  
+    .socios-list,
+    .socios-important-list {
+      font-size: 1.2rem; /* Aumenta el tamaño de fuente en listas */
+    }
+  
+    .socios-container {
+      padding: 40px; /* Padding aún más amplio para pantallas muy grandes */
+    }
+  }
+  
