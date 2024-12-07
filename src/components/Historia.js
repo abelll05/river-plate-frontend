@@ -1,5 +1,5 @@
 import React from 'react';
-import './Historia.css'; // Importa los estilos del componente
+import './Historia.css'; 
 
 const Historia = () => {
   return (
@@ -67,7 +67,7 @@ La grandeza de La Maquina de River, no obstante, no se encuentra en una multipli
 
 A ese River, al que sólo el tiempo parece haberle dado la razón, marcó la historia del fútbol argentino.
       </p>
-      {/* Puedes agregar más secciones según sea necesario */}
+      {/* agregar mas info */}
     </div>
   );
 };

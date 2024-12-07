@@ -9,7 +9,7 @@ import AccesosEstadio from "./components/AccesosEstadio";
 import Redes from "./components/Redes";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Footer from "./components/Footer"; // Importamos el componente Footer
+import Footer from "./components/Footer";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -66,7 +66,7 @@ const App = () => {
           </>
         )}
       </Routes>
-      <Footer /> {/* Agregamos el Footer aquí */}
+      <Footer /> {/* Footer */}
     </Router>
   );
 };
