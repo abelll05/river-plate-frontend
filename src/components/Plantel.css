@@ -1,11 +1,14 @@
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  color: #aa0000; /* Color destacado para el título principal */
 }
 
 h2 {
   color: #aa0000;
   margin-top: 20px;
+  border-bottom: 2px solid #aa0000; /* Línea decorativa */
+  padding-bottom: 5px;
 }
 
 ul {
@@ -14,84 +17,120 @@ ul {
 }
 
 li {
-  padding: 5px 0;
+  padding: 10px 0;
   border-bottom: 1px solid #ddd;
+  font-size: 1rem; /* Tamaño de fuente uniforme */
+  display: flex;
+  flex-direction: column; /* Acomodar información adicional */
 }
 
+li strong {
+  color: #333;
+  font-size: 1.1rem; /* Destacar el nombre del jugador */
+}
 
+li span {
+  color: #555;
+  font-size: 0.9rem; /* Información secundaria (edad, altura, dorsal) */
+}
 
+/* Estilo general del contenedor */
+.plantel-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9; /* Fondo claro */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
 
+/* Adaptaciones para dispositivos móviles */
 @media (max-width: 768px) {
   h1 {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
 
   h2 {
-    font-size: 1.3rem; 
+    font-size: 1.3rem;
   }
 
   li {
-    padding: 10px 0; 
+    padding: 8px 0;
+  }
+
+  li span {
+    font-size: 0.85rem; /* Reducir tamaño de texto secundario */
   }
 
   .plantel-container {
-    padding: 15px; 
+    padding: 15px;
   }
 }
 
-
+/* Adaptaciones para pantallas medianas */
 @media (min-width: 768px) and (max-width: 1024px) {
   h1 {
-    font-size: 1.8rem; 
+    font-size: 1.8rem;
   }
 
   h2 {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
 
   li {
-    padding: 8px 0; 
+    padding: 10px 0;
+  }
+
+  li span {
+    font-size: 0.9rem;
   }
 
   .plantel-container {
-    padding: 20px; 
+    padding: 20px;
   }
 }
 
-
+/* Adaptaciones para pantallas grandes */
 @media (min-width: 1024px) {
   h1 {
-    font-size: 2rem; 
+    font-size: 2rem;
   }
 
   h2 {
-    font-size: 1.7rem; 
+    font-size: 1.7rem;
   }
 
   li {
-    padding: 10px 0; 
+    padding: 10px 0;
+  }
+
+  li span {
+    font-size: 0.95rem;
   }
 
   .plantel-container {
-    padding: 30px; 
+    padding: 30px;
   }
 }
 
-
+/* Adaptaciones para pantallas muy grandes */
 @media (min-width: 1500px) {
   h1 {
-    font-size: 2.5rem; 
+    font-size: 2.5rem;
   }
 
   h2 {
-    font-size: 2rem; 
+    font-size: 2rem;
   }
 
   li {
-    padding: 12px 0; 
+    padding: 12px 0;
+  }
+
+  li span {
+    font-size: 1rem;
   }
 
   .plantel-container {
-    padding: 40px; 
+    padding: 40px;
   }
 }

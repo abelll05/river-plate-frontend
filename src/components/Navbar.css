@@ -46,20 +46,12 @@
   }
   
   .navbar-link:hover {
-    background-color: rgba(255, 255, 255, 0.2); 
-    color: lightgray; 
+    background-color: rgb(255, 255, 255); 
+    color: rgb(255, 0, 0); 
   }
   
 
-  .navbar-logout {
-    color: black !important; 
-    font-weight: bold; 
-  }
-  
-  .navbar-logout:hover {
-    color: red !important; 
-    background-color: rgba(0, 0, 0, 0.1); 
-  }
+
   
 
   

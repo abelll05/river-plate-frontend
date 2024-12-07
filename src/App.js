@@ -9,10 +9,10 @@ import AccesosEstadio from "./components/AccesosEstadio";
 import Redes from "./components/Redes";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Footer from "./components/Footer"; // Importamos el componente Footer
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -64,6 +64,7 @@ const App = () => {
           </>
         )}
       </Routes>
+      <Footer /> {/* Agregamos el Footer aquí */}
     </Router>
   );
 };
