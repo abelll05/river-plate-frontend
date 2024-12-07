@@ -21,7 +21,7 @@ const App = () => {
     } else {
       setIsAuthenticated(false); 
     }
-  }, []);
+  }, []); // Este useEffect se ejecuta una sola vez cuando el componente se carga
 
   return (
     <Router>
