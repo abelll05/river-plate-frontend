@@ -17,9 +17,9 @@ const App = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      setIsAuthenticated(true); 
+      setIsAuthenticated(true);
     } else {
-      setIsAuthenticated(false); 
+      setIsAuthenticated(false);
     }
   }, []); // Este useEffect se ejecuta una sola vez cuando el componente se carga
 
@@ -54,13 +54,13 @@ const App = () => {
                   to="/login"
                   replace
                   onClick={() => {
-                    localStorage.removeItem("token"); 
-                    setIsAuthenticated(false); 
+                    localStorage.removeItem("token");
+                    setIsAuthenticated(false);
                   }}
                 />
               }
             />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<Navigate to={window.location.pathname} replace />} /> {/* Mantener la ruta */}
           </>
         )}
       </Routes>
