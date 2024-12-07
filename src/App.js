@@ -27,6 +27,7 @@ const App = () => {
     <Router>
       {isAuthenticated && <Navbar setIsAuthenticated={setIsAuthenticated} />}
       <Routes>
+        {/* Rutas públicas */}
         {!isAuthenticated ? (
           <>
             <Route
@@ -41,6 +42,7 @@ const App = () => {
           </>
         ) : (
           <>
+            {/* Rutas protegidas */}
             <Route path="/" element={<Home />} />
             <Route path="/historia" element={<Historia />} />
             <Route path="/plantel" element={<Plantel />} />
