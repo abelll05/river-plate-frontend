@@ -12,16 +12,20 @@ import Register from "./components/Register";
 import Footer from "./components/Footer"; // Importamos el componente Footer
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // Recuperar el estado de autenticación desde localStorage
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    const token = localStorage.getItem("token");
+    return token ? true : false;
+  });
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setIsAuthenticated(true);
+    // Al cambiar el estado de autenticación, lo guardamos en localStorage
+    if (isAuthenticated) {
+      localStorage.setItem("token", "your-token-value"); // Guarda un valor de token en localStorage
     } else {
-      setIsAuthenticated(false);
+      localStorage.removeItem("token"); // Si no está autenticado, lo eliminamos
     }
-  }, []); // Este useEffect se ejecuta una sola vez cuando el componente se carga
+  }, [isAuthenticated]);
 
   return (
     <Router>
@@ -54,13 +58,12 @@ const App = () => {
                   to="/login"
                   replace
                   onClick={() => {
-                    localStorage.removeItem("token");
-                    setIsAuthenticated(false);
+                    setIsAuthenticated(false); // Cambia el estado a false cuando se desloguea
                   }}
                 />
               }
             />
-            <Route path="*" element={<Navigate to={window.location.pathname} replace />} /> {/* Mantener la ruta */}
+            <Route path="*" element={<Navigate to={window.location.pathname} replace />} />
           </>
         )}
       </Routes>
