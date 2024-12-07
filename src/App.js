@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Historia from "./components/Historia";
@@ -18,12 +18,21 @@ const App = () => {
     return token ? true : false;
   });
 
+  // Recuperar la ruta actual del navegador
+  const location = useLocation();
+
   useEffect(() => {
-    // Al cambiar el estado de autenticación, lo guardamos en localStorage
+    // Guardamos la ruta en localStorage para que se persista
     if (isAuthenticated) {
-      localStorage.setItem("token", "your-token-value"); // Guarda un valor de token en localStorage
-    } else {
-      localStorage.removeItem("token"); // Si no está autenticado, lo eliminamos
+      localStorage.setItem("currentPath", location.pathname);
+    }
+  }, [location, isAuthenticated]);
+
+  useEffect(() => {
+    // Verificar si el usuario ya está autenticado y redirigirlo a su última ruta
+    const savedPath = localStorage.getItem("currentPath");
+    if (savedPath && isAuthenticated) {
+      window.location.href = savedPath; // Redirige a la última página visitada
     }
   }, [isAuthenticated]);
 
@@ -63,7 +72,7 @@ const App = () => {
                 />
               }
             />
-            <Route path="*" element={<Navigate to={window.location.pathname} replace />} />
+            <Route path="*" element={<Navigate to={location.pathname} replace />} />
           </>
         )}
       </Routes>
