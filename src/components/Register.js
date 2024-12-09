@@ -8,6 +8,7 @@ const Register = () => {
     email: '',
     password: '',
   });
+  const [isLoading, setIsLoading] = useState(false);  // Estado para indicar si la solicitud está en curso
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -16,6 +17,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);  // Activamos el indicador de carga
     try {
       const response = await fetch(
         'https://river-plate-backend.onrender.com/api/register',
@@ -29,7 +31,7 @@ const Register = () => {
       );
       const data = await response.json();
       if (response.ok) {
-        alert('Usuario registrado con éxito y confirmacion de registro enviada a su mail');
+        alert('Usuario registrado con éxito y confirmación de registro enviada a su mail');
         navigate('/login');
       } else {
         alert(data.error || 'Error al registrarse');
@@ -37,6 +39,8 @@ const Register = () => {
     } catch (error) {
       console.error('Error al registrarse:', error);
       alert('No se pudo conectar con el servidor. Intenta nuevamente.');
+    } finally {
+      setIsLoading(false);  // Desactivamos el indicador de carga
     }
   };
 
@@ -78,7 +82,13 @@ const Register = () => {
               required
             />
           </div>
-          <button type="submit" className="auth-button">Registrar</button>
+          <button 
+            type="submit" 
+            className="auth-button" 
+            disabled={isLoading}  // Deshabilitamos el botón mientras se procesa la solicitud
+          >
+            {isLoading ? 'Registrando...' : 'Registrar'}  {/* Mostrar mensaje de carga */}
+          </button>
         </form>
         <p className="auth-footer">
           ¿Ya tienes cuenta?{' '}
