@@ -5,13 +5,18 @@ import './Auth.css';
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false); // Estado de carga
+  const [error, setError] = useState(''); // Estado de error
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Iniciar carga
+    setError(''); // Resetear el error
+
     try {
       const response = await fetch(
-        'https://river-plate-backend.onrender.com/api/login', // Asegúrate de que esta URL sea la correcta
+        'https://river-plate-backend.onrender.com/api/login', // URL del backend
         {
           method: 'POST',
           headers: {
@@ -21,16 +26,19 @@ const Login = ({ setIsAuthenticated }) => {
         }
       );
       const data = await response.json();
+
       if (response.ok) {
         localStorage.setItem('token', data.token);
         setIsAuthenticated(true);
         navigate('/');
       } else {
-        alert(data.error || 'Error al iniciar sesión');
+        setError(data.error || 'Error al iniciar sesión');
       }
     } catch (error) {
       console.error('Error en el login:', error);
-      alert('No se pudo conectar con el servidor. Intenta nuevamente.');
+      setError('No se pudo conectar con el servidor. Intenta nuevamente.');
+    } finally {
+      setLoading(false); // Terminar carga
     }
   };
 
@@ -59,7 +67,10 @@ const Login = ({ setIsAuthenticated }) => {
               required
             />
           </div>
-          <button type="submit" className="auth-button">Login</button>
+          <button type="submit" className="auth-button" disabled={loading}>
+            {loading ? 'Iniciando sesión...' : 'Login'}
+          </button>
+          {error && <p className="auth-error">{error}</p>} {/* Mostrar error */}
         </form>
         <p className="auth-footer">
           ¿No tienes cuenta?{' '}
