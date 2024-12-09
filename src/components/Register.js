@@ -29,7 +29,7 @@ const Register = () => {
       );
       const data = await response.json();
       if (response.ok) {
-        alert('Usuario registrado con éxito');
+        alert('Usuario registrado con éxito y confirmacion de registro enviada a su mail');
         navigate('/login');
       } else {
         alert(data.error || 'Error al registrarse');
