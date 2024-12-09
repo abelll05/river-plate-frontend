@@ -11,7 +11,7 @@ const Login = ({ setIsAuthenticated }) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        'https://river-plate-backend.onrender.com/api/auth/login',  // URL directa aquí
+        'https://river-plate-backend.onrender.com/api/login',  // URL directa aquí
         {
           method: 'POST',
           headers: {
