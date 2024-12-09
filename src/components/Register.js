@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
+import SuccessNotification from './SuccessNotification';  // Importar el componente de notificación
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +9,9 @@ const Register = () => {
     email: '',
     password: '',
   });
-  const [isLoading, setIsLoading] = useState(false);  // Estado para indicar si la solicitud está en curso
+  const [showSuccess, setShowSuccess] = useState(false);  // Estado para mostrar la notificación
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);  // Estado para controlar la carga
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -17,7 +20,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);  // Activamos el indicador de carga
+    setLoading(true);  // Activar estado de carga
     try {
       const response = await fetch(
         'https://river-plate-backend.onrender.com/api/register',
@@ -30,17 +33,19 @@ const Register = () => {
         }
       );
       const data = await response.json();
+      setLoading(false);  // Desactivar el estado de carga
       if (response.ok) {
-        alert('Usuario registrado con éxito y confirmación de registro enviada a su mail');
-        navigate('/login');
+        setShowSuccess(true);  // Mostrar la notificación de éxito
+        setTimeout(() => {
+          navigate('/login');
+        }, 3000);  // Redirigir después de 3 segundos
       } else {
-        alert(data.error || 'Error al registrarse');
+        setError(data.error || 'Error al registrarse');
       }
     } catch (error) {
       console.error('Error al registrarse:', error);
-      alert('No se pudo conectar con el servidor. Intenta nuevamente.');
-    } finally {
-      setIsLoading(false);  // Desactivamos el indicador de carga
+      setLoading(false);  // Desactivar el estado de carga en caso de error
+      setError('No se pudo conectar con el servidor. Intenta nuevamente.');
     }
   };
 
@@ -48,6 +53,9 @@ const Register = () => {
     <div className="auth-container">
       <div className="auth-box">
         <h2>Register</h2>
+        {showSuccess && <SuccessNotification message="¡Registro exitoso! Te hemos enviado un correo de confirmación." onClose={() => setShowSuccess(false)} />}
+        {error && <div className="error-message">{error}</div>}
+        
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
             <label>Nombre de Usuario</label>
@@ -82,14 +90,13 @@ const Register = () => {
               required
             />
           </div>
-          <button 
-            type="submit" 
-            className="auth-button" 
-            disabled={isLoading}  // Deshabilitamos el botón mientras se procesa la solicitud
-          >
-            {isLoading ? 'Registrando...' : 'Registrar'}  {/* Mostrar mensaje de carga */}
+          <button type="submit" className="auth-button" disabled={loading}>
+            {loading ? 'Registrando...' : 'Registrar'}
           </button>
         </form>
+        
+        {loading && <div className="loading-message">Registrando...</div>}
+        
         <p className="auth-footer">
           ¿Ya tienes cuenta?{' '}
           <span className="auth-link" onClick={() => navigate('/login')}>
