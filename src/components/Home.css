@@ -39,6 +39,12 @@ h1 {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff; 
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+  transform: scale(1.05);
 }
 
 .news-image {
@@ -63,6 +69,17 @@ h1 {
   margin: 10px 0;
 }
 
+.leer-mas-text {
+  font-size: 14px;
+  color: #007bff;
+  font-weight: bold; /* Negrita */
+  text-decoration: underline; /* Subrayado */
+  margin-top: 10px;
+}
+
+.leer-mas-text:hover {
+  text-decoration: none; /* El subrayado desaparece al pasar el mouse */
+}
 
 .news-link {
   display: none; 
@@ -72,7 +89,6 @@ h1 {
   color: #cc0000;
 }
 
-
 body {
   font-size: 16px;
 }
@@ -81,7 +97,6 @@ body {
   display: flex;
   justify-content: space-between;
 }
-
 
 @media screen and (max-width: 768px) {
   .navbar-menu {
@@ -103,7 +118,6 @@ body {
   }
 }
 
-
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .news-grid {
     grid-template-columns: repeat(2, 1fr); 
@@ -114,7 +128,6 @@ body {
   }
 }
 
-
 @media screen and (min-width: 1024px) {
   .news-grid {
     grid-template-columns: repeat(3, 1fr); 
@@ -124,7 +137,6 @@ body {
     font-size: 1.6rem;
   }
 }
-
 
 @media screen and (min-width: 1500px) {
   .news-grid {

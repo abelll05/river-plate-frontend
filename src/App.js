@@ -9,6 +9,7 @@ import AccesosEstadio from "./components/AccesosEstadio";
 import Redes from "./components/Redes";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import NoticiaDetalle from "./components/NoticiaDetalle"; // Nuevo componente
 import Footer from "./components/Footer";
 import './App.css';
 
@@ -17,12 +18,13 @@ const App = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
-      setIsAuthenticated(true); 
-    } else {
-      setIsAuthenticated(false); 
-    }
+    setIsAuthenticated(!!token); // Verifica si existe el token
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
+  };
 
   return (
     <Router>
@@ -45,18 +47,14 @@ const App = () => {
               <Route path="/socios" element={<Socios />} />
               <Route path="/accesos-estadio" element={<AccesosEstadio />} />
               <Route path="/redes" element={<Redes />} />
-              <Route path="/logout" element={
-                <Navigate to="/login" replace onClick={() => {
-                  localStorage.removeItem("token"); 
-                  setIsAuthenticated(false); 
-                }} />
-              } />
+              <Route path="/noticia/:id" element={<NoticiaDetalle />} /> {/* Ruta para detalles */}
+              <Route path="/logout" element={<Navigate to="/login" replace onClick={handleLogout} />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </>
           )}
         </Routes>
       </div>
-      <Footer /> {/* Footer */}
+      <Footer />
     </Router>
   );
 };
