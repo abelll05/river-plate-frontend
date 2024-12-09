@@ -14,9 +14,10 @@
   padding: 20px 40px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 350px;
+  width: 100%;
+  max-width: 350px; /* Evitar que el cuadro exceda 350px */
   text-align: center;
-  max-width: 100%; 
+  box-sizing: border-box; /* Incluye padding y border en el tamaño total */
 }
 
 .auth-box h2 {
@@ -42,6 +43,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
+  box-sizing: border-box; /* Evitar desbordes */
 }
 
 .auth-button {
@@ -60,6 +62,11 @@
   background-color: #ff0000;
 }
 
+.auth-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 .auth-footer {
   margin-top: 15px;
   font-size: 14px;
@@ -76,9 +83,14 @@
   color: #ff0000;
 }
 
+.loading-message {
+  font-size: 16px;
+  color: #999;
+  text-align: center;
+  margin-top: 10px;
+}
 
-
-
+/* Media Queries para ajustar diseño en dispositivos */
 @media (max-width: 480px) {
   .auth-box {
     width: 90%; 
@@ -94,7 +106,6 @@
   }
 }
 
-
 @media (max-width: 768px) {
   .auth-box {
     width: 80%; 
@@ -106,23 +117,9 @@
   }
 }
 
-
 @media (min-width: 1024px) {
   .auth-box {
     width: 350px; 
     padding: 20px;
   }
-}
-
-
-.loading-message {
-  font-size: 16px;
-  color: #999;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.auth-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
 }

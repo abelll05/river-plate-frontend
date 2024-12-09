@@ -1,4 +1,3 @@
-/* General reset and global styles */
 body {
   margin: 0;
   padding: 0;
@@ -12,17 +11,15 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Garantiza que ocupe toda la altura de la ventana */
+  min-height: 100vh; 
 }
 
-/* Main content area */
 .App-main {
   flex: 1;
-  padding-bottom: 80px; /* Ajusta según el tamaño del footer */
-  min-height: calc(100vh - 80px); /* Asegura que el contenido ocupe el resto del espacio */
+  padding-bottom: 80px; 
+  min-height: calc(100vh - 80px); 
 }
 
-/* Header styles */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -34,7 +31,6 @@ body {
   color: white;
 }
 
-/* Logo animation */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -55,7 +51,6 @@ body {
   }
 }
 
-/* Footer */
 footer {
   background-color: #282c34;
   color: white;
@@ -65,97 +60,92 @@ footer {
   position: relative;
 }
 
-/* Mobile responsive design */
 @media (max-width: 480px) {
   .App-header {
-    font-size: 14px; /* Reduce font size for small screens */
+    font-size: 14px; 
   }
 
   .App-logo {
-    height: 30vmin; /* Reduce logo size on small screens */
+    height: 30vmin; 
   }
 
   .App-main {
-    padding-bottom: 50px; /* Adjust bottom padding for smaller screens */
+    padding-bottom: 50px; 
   }
 
   footer {
-    padding: 15px 0; /* Larger padding for mobile footer */
+    padding: 15px 0; 
   }
 }
 
-/* Small devices (tablets, between 480px and 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
   .App-header {
-    font-size: 16px; /* Slightly larger font for tablet devices */
+    font-size: 16px; 
   }
 
   .App-logo {
-    height: 35vmin; /* Adjust logo size */
+    height: 35vmin; 
   }
 
   .App-main {
-    padding-bottom: 60px; /* Adjust bottom padding */
+    padding-bottom: 60px; 
   }
 
   footer {
-    padding: 20px 0; /* Footer padding */
+    padding: 20px 0; 
   }
 }
 
-/* Medium devices (desktops, between 769px and 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .App-header {
-    font-size: 18px; /* Slightly larger font for desktops */
+    font-size: 18px; 
   }
 
   .App-logo {
-    height: 40vmin; /* Adjust logo size */
+    height: 40vmin; 
   }
 
   .App-main {
-    padding-bottom: 70px; /* Adjust bottom padding */
+    padding-bottom: 70px; 
   }
 
   footer {
-    padding: 25px 0; /* Footer padding */
+    padding: 25px 0; 
   }
 }
 
-/* Large devices (large desktops, between 1025px and 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
   .App-header {
     font-size: 20px;
   }
 
   .App-logo {
-    height: 45vmin; /* Slightly larger logo */
+    height: 45vmin; 
   }
 
   .App-main {
-    padding-bottom: 80px; /* Default bottom padding */
+    padding-bottom: 80px; 
   }
 
   footer {
-    padding: 30px 0; /* Footer padding */
+    padding: 30px 0; 
   }
 }
 
-/* Extra large devices (very large screens, 1441px to 2000px) */
 @media (min-width: 1441px) and (max-width: 2000px) {
   .App-header {
     font-size: 24px;
   }
 
   .App-logo {
-    height: 50vmin; /* Larger logo for big screens */
+    height: 50vmin; 
   }
 
   .App-main {
-    padding-bottom: 90px; /* Default bottom padding */
+    padding-bottom: 90px; 
   }
 
   footer {
-    padding: 35px 0; /* Larger footer padding for very large screens */
+    padding: 35px 0; 
   }
 }

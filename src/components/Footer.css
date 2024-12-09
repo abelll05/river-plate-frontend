@@ -1,14 +1,14 @@
 .footer {
-  background-color: #ff0303; /* Rojo de fondo */
+  background-color: #ff0303; 
   text-align: center;
   padding: 20px 0;
   font-size: 14px;
   position: fixed;
   bottom: 0;
   width: 100%;
-  color: white; /* Cambia el color del texto (fuente) a blanco */
+  color: white; 
 }
 
 .footer p {
-  color: white; /* Asegura que el texto del <p> sea blanco */
+  color: white; 
 }

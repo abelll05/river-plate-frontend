@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
-import SuccessNotification from './SuccessNotification';  // Importar el componente de notificación
+import SuccessNotification from './SuccessNotification';  
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -9,9 +9,9 @@ const Register = () => {
     email: '',
     password: '',
   });
-  const [showSuccess, setShowSuccess] = useState(false);  // Estado para mostrar la notificación
+  const [showSuccess, setShowSuccess] = useState(false);  
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);  // Estado para controlar la carga
+  const [loading, setLoading] = useState(false);  
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -20,7 +20,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);  // Activar estado de carga
+    setLoading(true);  
     try {
       const response = await fetch(
         'https://river-plate-backend.onrender.com/api/register',
@@ -33,18 +33,18 @@ const Register = () => {
         }
       );
       const data = await response.json();
-      setLoading(false);  // Desactivar el estado de carga
+      setLoading(false);  
       if (response.ok) {
-        setShowSuccess(true);  // Mostrar la notificación de éxito
+        setShowSuccess(true);  
         setTimeout(() => {
           navigate('/login');
-        }, 3000);  // Redirigir después de 3 segundos
+        }, 3000);  
       } else {
         setError(data.error || 'Error al registrarse');
       }
     } catch (error) {
       console.error('Error al registrarse:', error);
-      setLoading(false);  // Desactivar el estado de carga en caso de error
+      setLoading(false); 
       setError('No se pudo conectar con el servidor. Intenta nuevamente.');
     }
   };

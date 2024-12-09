@@ -3,7 +3,6 @@ import './SuccessNotification.css';
 
 const SuccessNotification = ({ message, onClose }) => {
   useEffect(() => {
-    // Cerrar el mensaje automáticamente después de 5 segundos
     const timer = setTimeout(() => {
       onClose();
     }, 5000);

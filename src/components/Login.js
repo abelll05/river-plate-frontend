@@ -5,18 +5,18 @@ import './Auth.css';
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false); // Estado de carga
-  const [error, setError] = useState(''); // Estado de error
+  const [loading, setLoading] = useState(false); 
+  const [error, setError] = useState(''); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Iniciar carga
-    setError(''); // Resetear el error
+    setLoading(true); 
+    setError(''); 
 
     try {
       const response = await fetch(
-        'https://river-plate-backend.onrender.com/api/login', // URL del backend
+        'https://river-plate-backend.onrender.com/api/login', 
         {
           method: 'POST',
           headers: {
@@ -38,7 +38,7 @@ const Login = ({ setIsAuthenticated }) => {
       console.error('Error en el login:', error);
       setError('No se pudo conectar con el servidor. Intenta nuevamente.');
     } finally {
-      setLoading(false); // Terminar carga
+      setLoading(false); 
     }
   };
 
