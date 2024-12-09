@@ -11,7 +11,7 @@ const Login = ({ setIsAuthenticated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/api/auth/login', { email, password });
+      const response = await api.post('/auth/login', { email, password });
       localStorage.setItem('token', response.data.token);
       setIsAuthenticated(true);
       navigate('/');
