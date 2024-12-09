@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../api/api';
 import './Auth.css';
 
 const Login = ({ setIsAuthenticated }) => {
@@ -11,18 +10,27 @@ const Login = ({ setIsAuthenticated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/auth/login', { email, password });
-      localStorage.setItem('token', response.data.token);
-      setIsAuthenticated(true);
-      navigate('/');
+      const response = await fetch(
+        'https://river-plate-backend.onrender.com/api/auth/login',  // URL directa aquí
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        localStorage.setItem('token', data.token);
+        setIsAuthenticated(true);
+        navigate('/');
+      } else {
+        alert(data.error || 'Error al iniciar sesión');
+      }
     } catch (error) {
       console.error('Error en el login:', error);
-
-      if (error.response) {
-        alert(error.response.data.error || 'Error al iniciar sesión');
-      } else {
-        alert('No se pudo conectar con el servidor. Intenta nuevamente.');
-      }
+      alert('No se pudo conectar con el servidor. Intenta nuevamente.');
     }
   };
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://river-plate-backend.onrender.com', 
+  baseURL: 'https://river-plate-backend.onrender.com/api', 
 });
 
 
