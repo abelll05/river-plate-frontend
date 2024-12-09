@@ -10,6 +10,7 @@ import Redes from "./components/Redes";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Footer from "./components/Footer";
+import './App.css';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -26,46 +27,48 @@ const App = () => {
   return (
     <Router>
       {isAuthenticated && <Navbar setIsAuthenticated={setIsAuthenticated} />}
-      <Routes>
-        {/* Rutas públicas */}
-        {!isAuthenticated ? (
-          <>
-            <Route
-              path="/login"
-              element={<Login setIsAuthenticated={setIsAuthenticated} />}
-            />
-            <Route
-              path="/register"
-              element={<Register setIsAuthenticated={setIsAuthenticated} />}
-            />
-            <Route path="*" element={<Navigate to="/login" replace />} />
-          </>
-        ) : (
-          <>
-            {/* Rutas protegidas */}
-            <Route path="/" element={<Home />} />
-            <Route path="/historia" element={<Historia />} />
-            <Route path="/plantel" element={<Plantel />} />
-            <Route path="/socios" element={<Socios />} />
-            <Route path="/accesos-estadio" element={<AccesosEstadio />} />
-            <Route path="/redes" element={<Redes />} />
-            <Route
-              path="/logout"
-              element={
-                <Navigate
-                  to="/login"
-                  replace
-                  onClick={() => {
-                    localStorage.removeItem("token"); 
-                    setIsAuthenticated(false); 
-                  }}
-                />
-              }
-            />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </>
-        )}
-      </Routes>
+      <div className="App-main">
+        <Routes>
+          {/* Rutas públicas */}
+          {!isAuthenticated ? (
+            <>
+              <Route
+                path="/login"
+                element={<Login setIsAuthenticated={setIsAuthenticated} />}
+              />
+              <Route
+                path="/register"
+                element={<Register setIsAuthenticated={setIsAuthenticated} />}
+              />
+              <Route path="*" element={<Navigate to="/login" replace />} />
+            </>
+          ) : (
+            <>
+              {/* Rutas protegidas */}
+              <Route path="/" element={<Home />} />
+              <Route path="/historia" element={<Historia />} />
+              <Route path="/plantel" element={<Plantel />} />
+              <Route path="/socios" element={<Socios />} />
+              <Route path="/accesos-estadio" element={<AccesosEstadio />} />
+              <Route path="/redes" element={<Redes />} />
+              <Route
+                path="/logout"
+                element={
+                  <Navigate
+                    to="/login"
+                    replace
+                    onClick={() => {
+                      localStorage.removeItem("token"); 
+                      setIsAuthenticated(false); 
+                    }}
+                  />
+                }
+              />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </>
+          )}
+        </Routes>
+      </div>
       <Footer /> {/* Footer */}
     </Router>
   );
