@@ -1,36 +1,27 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from '../api/api';
 import './Auth.css';
 
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
-      const response = await fetch(
-        'https://river-plate-backend.onrender.com/api/login', // Asegúrate de que esta URL sea la correcta
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email, password }),
-        }
-      );
-      const data = await response.json();
-      if (response.ok) {
-        localStorage.setItem('token', data.token);
-        setIsAuthenticated(true);
-        navigate('/');
-      } else {
-        alert(data.error || 'Error al iniciar sesión');
-      }
+      const response = await api.post('/login', { email, password });
+      localStorage.setItem('token', response.data.token);
+      setIsAuthenticated(true);
+      navigate('/');
     } catch (error) {
       console.error('Error en el login:', error);
-      alert('No se pudo conectar con el servidor. Intenta nuevamente.');
+      alert('Error al iniciar sesión');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -59,7 +50,9 @@ const Login = ({ setIsAuthenticated }) => {
               required
             />
           </div>
-          <button type="submit" className="auth-button">Login</button>
+          <button type="submit" className="auth-button" disabled={isLoading}>
+            {isLoading ? 'Cargando...' : 'Login'}
+          </button>
         </form>
         <p className="auth-footer">
           ¿No tienes cuenta?{' '}

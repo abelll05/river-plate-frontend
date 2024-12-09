@@ -32,14 +32,8 @@ const App = () => {
           {/* Rutas públicas */}
           {!isAuthenticated ? (
             <>
-              <Route
-                path="/login"
-                element={<Login setIsAuthenticated={setIsAuthenticated} />}
-              />
-              <Route
-                path="/register"
-                element={<Register setIsAuthenticated={setIsAuthenticated} />}
-              />
+              <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+              <Route path="/register" element={<Register setIsAuthenticated={setIsAuthenticated} />} />
               <Route path="*" element={<Navigate to="/login" replace />} />
             </>
           ) : (
@@ -51,19 +45,12 @@ const App = () => {
               <Route path="/socios" element={<Socios />} />
               <Route path="/accesos-estadio" element={<AccesosEstadio />} />
               <Route path="/redes" element={<Redes />} />
-              <Route
-                path="/logout"
-                element={
-                  <Navigate
-                    to="/login"
-                    replace
-                    onClick={() => {
-                      localStorage.removeItem("token"); 
-                      setIsAuthenticated(false); 
-                    }}
-                  />
-                }
-              />
+              <Route path="/logout" element={
+                <Navigate to="/login" replace onClick={() => {
+                  localStorage.removeItem("token"); 
+                  setIsAuthenticated(false); 
+                }} />
+              } />
               <Route path="*" element={<Navigate to="/" replace />} />
             </>
           )}
