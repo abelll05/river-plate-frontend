@@ -1,9 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://river-plate-backend.onrender.com/api', 
+  baseURL: 'https://river-plate-backend.onrender.com/api', // Asegúrate de que esta URL sea la correcta
 });
-
 
 api.interceptors.request.use(
   (config) => {
