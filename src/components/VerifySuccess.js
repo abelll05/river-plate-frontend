@@ -2,10 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const VerifySuccess = () => {
-  const navigate = useNavigate(); // Usamos useNavigate para la navegación
+  const navigate = useNavigate();
 
   const handleLoginRedirect = () => {
-    navigate('/login'); // Redirigir al login después de mostrar el éxito
+    navigate('/login'); // Redirige al login
   };
 
   return (

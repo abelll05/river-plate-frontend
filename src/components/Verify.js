@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const Verify = () => {
-  const navigate = useNavigate(); // Usamos useNavigate
+  const navigate = useNavigate(); // Usamos useNavigate para la navegación
   const { token } = useParams();  // Obtenemos el token de la URL
 
   useEffect(() => {
