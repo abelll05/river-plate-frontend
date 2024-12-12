@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import NoticiaDetalle from "./components/NoticiaDetalle"; // Componente para detalles de noticias
 import Verify from "./components/Verify"; // Importar el componente Verify
+import VerifySuccess from './components/VerifySuccess';
 import Footer from "./components/Footer";
 import './App.css';
 
@@ -37,7 +38,8 @@ const App = () => {
             <>
               <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
               <Route path="/register" element={<Register setIsAuthenticated={setIsAuthenticated} />} />
-              <Route path="/verify-success" element={<Verify />} /> {/* Ruta para la verificación de correo */}
+              <Route path="/verify/:token" component={Verify} /> {/* Ruta para la verificación de correo */}
+              <Route path="/verify-success" element={<VerifySuccess />} />
               <Route path="*" element={<Navigate to="/login" replace />} />
             </>
           ) : (

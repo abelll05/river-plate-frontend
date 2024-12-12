@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Para redirigir a la página de login
+import { useNavigate } from 'react-router-dom';
 
 const Verify = () => {
   const [message, setMessage] = useState('');
@@ -7,7 +7,6 @@ const Verify = () => {
   const token = new URLSearchParams(window.location.search).get('token'); // Obtiene el token de la URL
 
   useEffect(() => {
-    // Verificar el token de la URL
     if (token) {
       fetch(`/api/verify/${token}`)
         .then((response) => response.json())
