@@ -1,45 +1,62 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const path = require('path');
-const authRoutes = require('./routes/authRoutes');
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Historia from "./components/Historia";
+import Plantel from "./components/Plantel";
+import Socios from "./components/Socios";
+import AccesosEstadio from "./components/AccesosEstadio";
+import Redes from "./components/Redes";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import NoticiaDetalle from "./components/NoticiaDetalle"; // Nuevo componente
+import Footer from "./components/Footer";
+import './App.css';
 
-const app = express();
-const PORT = process.env.PORT || 5000;
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-app.use(express.json()); 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token); // Verifica si existe el token
+  }, []);
 
-const allowedOrigins = [
-  'http://localhost:3000', 
-  'https://river-plate-frontend.onrender.com', 
-];
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-  })
-);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
+  };
 
-mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('Conexión a MongoDB exitosa'))
-  .catch((err) => {
-    console.error('Error al conectar a MongoDB:', err);
-    process.exit(1);
-  });
+  return (
+    <Router>
+      {isAuthenticated && <Navbar setIsAuthenticated={setIsAuthenticated} />}
+      <div className="App-main">
+        <Routes>
+          {/* Rutas públicas */}
+          {!isAuthenticated ? (
+            <>
+              <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+              <Route path="/register" element={<Register setIsAuthenticated={setIsAuthenticated} />} />
+              <Route path="*" element={<Navigate to="/login" replace />} />
+            </>
+          ) : (
+            <>
+              {/* Rutas protegidas */}
+              <Route path="/" element={<Home />} />
+              <Route path="/historia" element={<Historia />} />
+              <Route path="/plantel" element={<Plantel />} />
+              <Route path="/socios" element={<Socios />} />
+              <Route path="/accesos-estadio" element={<AccesosEstadio />} />
+              <Route path="/redes" element={<Redes />} />
+              <Route path="/noticia/:id" element={<NoticiaDetalle />} /> {/* Ruta para detalles */}
+              <Route path="/logout" element={<Navigate to="/login" replace onClick={handleLogout} />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </>
+          )}
+        </Routes>
+      </div>
+      <Footer />
+    </Router>
+  );
+};
 
-app.use('/api', authRoutes);
-
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
-app.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}`);
-});
+export default App;
