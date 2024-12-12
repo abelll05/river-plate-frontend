@@ -37,7 +37,7 @@ const App = () => {
             <>
               <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
               <Route path="/register" element={<Register setIsAuthenticated={setIsAuthenticated} />} />
-              <Route path="/verify/:token" element={<Verify />} /> {/* Ruta para la verificación de correo */}
+              <Route path="/verify-success" element={<Verify />} /> {/* Ruta para la verificación de correo */}
               <Route path="*" element={<Navigate to="/login" replace />} />
             </>
           ) : (
