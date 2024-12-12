@@ -9,7 +9,6 @@ const Verify = () => {
   useEffect(() => {
     const verifyEmail = async () => {
       try {
-        // URL de la API de verificación en producción
         const response = await fetch(`https://river-plate-backend.onrender.com/api/verify/${token}`);
         const data = await response.json();
 
