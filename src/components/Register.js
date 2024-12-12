@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
-import SuccessNotification from './SuccessNotification';  
+import SuccessNotification from './SuccessNotification';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -9,42 +9,44 @@ const Register = () => {
     email: '',
     password: '',
   });
-  const [showSuccess, setShowSuccess] = useState(false);  
+  const [showSuccess, setShowSuccess] = useState(false);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);  
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // Función para manejar los cambios en los campos del formulario
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);  
+    setLoading(true);
     try {
       const response = await fetch(
-        'https://river-plate-backend.onrender.com/api/register',
+        'https://river-plate-backend.onrender.com/api/register', // URL del backend
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(formData), // Enviar los datos del formulario al backend
         }
       );
       const data = await response.json();
-      setLoading(false);  
+      setLoading(false);
       if (response.ok) {
-        setShowSuccess(true);  
+        setShowSuccess(true); // Mostrar notificación de éxito
         setTimeout(() => {
-          navigate('/login');
-        }, 3000);  
+          navigate('/login'); // Redirigir a la página de login
+        }, 3000);
       } else {
         setError(data.error || 'Error al registrarse');
       }
     } catch (error) {
       console.error('Error al registrarse:', error);
-      setLoading(false); 
+      setLoading(false);
       setError('No se pudo conectar con el servidor. Intenta nuevamente.');
     }
   };
@@ -53,9 +55,14 @@ const Register = () => {
     <div className="auth-container">
       <div className="auth-box">
         <h2>Register</h2>
-        {showSuccess && <SuccessNotification message="¡Registro exitoso! Te hemos enviado un correo de confirmación." onClose={() => setShowSuccess(false)} />}
+        {showSuccess && (
+          <SuccessNotification
+            message="¡Registro exitoso! Te hemos enviado un correo de confirmación."
+            onClose={() => setShowSuccess(false)}
+          />
+        )}
         {error && <div className="error-message">{error}</div>}
-        
+
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
             <label>Nombre de Usuario</label>
@@ -64,7 +71,7 @@ const Register = () => {
               name="username"
               value={formData.username}
               onChange={handleInputChange}
-              placeholder="Enter your username"
+              placeholder="Ingresa tu nombre de usuario"
               required
             />
           </div>
@@ -75,7 +82,7 @@ const Register = () => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              placeholder="Enter your email"
+              placeholder="Ingresa tu correo electrónico"
               required
             />
           </div>
@@ -86,7 +93,7 @@ const Register = () => {
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              placeholder="Create a password"
+              placeholder="Crea una contraseña"
               required
             />
           </div>
@@ -94,9 +101,9 @@ const Register = () => {
             {loading ? 'Registrando...' : 'Registrar'}
           </button>
         </form>
-        
+
         {loading && <div className="loading-message">Registrando...</div>}
-        
+
         <p className="auth-footer">
           ¿Ya tienes cuenta?{' '}
           <span className="auth-link" onClick={() => navigate('/login')}>
