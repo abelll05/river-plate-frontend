@@ -1,36 +1,36 @@
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Para redirigir a la página de login
 
 const Verify = () => {
-  const { token } = useParams();
-  const [status, setStatus] = useState('');
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
+  const token = new URLSearchParams(window.location.search).get('token'); // Obtiene el token de la URL
 
   useEffect(() => {
-    const verifyEmail = async () => {
-      try {
-        const response = await fetch(`https://river-plate-backend.onrender.com/api/verify/${token}`);
-        const data = await response.json();
-
-        if (response.ok) {
-          setStatus('Correo verificado exitosamente. Redirigiendo al login...');
-          setTimeout(() => navigate('/login'), 3000); // Redirige después de 3 segundos
-        } else {
-          setStatus(data.error || 'Error al verificar el correo.');
-        }
-      } catch (error) {
-        console.error('Error en la verificación:', error);
-        setStatus('Error al verificar el correo.');
-      }
-    };
-
-    verifyEmail();
+    // Verificar el token de la URL
+    if (token) {
+      fetch(`/api/verify/${token}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.error) {
+            setMessage('Error en la verificación. El token es inválido o ha expirado.');
+          } else {
+            setMessage('Verificación exitosa. Ahora puedes iniciar sesión.');
+            setTimeout(() => {
+              navigate('/login'); // Redirige al login después de la verificación
+            }, 3000); // Espera 3 segundos antes de redirigir
+          }
+        })
+        .catch((error) => {
+          setMessage('Hubo un error al procesar la verificación.');
+          console.error(error);
+        });
+    }
   }, [token, navigate]);
 
   return (
     <div>
-      <h1>Verificación de Correo</h1>
-      <p>{status}</p>
+      <h2>{message}</h2>
     </div>
   );
 };
