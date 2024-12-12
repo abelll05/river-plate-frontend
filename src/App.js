@@ -38,7 +38,7 @@ const App = () => {
             <>
               <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
               <Route path="/register" element={<Register setIsAuthenticated={setIsAuthenticated} />} />
-              <Route path="/verify/:token" component={Verify} /> {/* Ruta para la verificación de correo */}
+              <Route path="/verify/:token" element={<Verify />} /> {/* Ruta para la verificación de correo */}
               <Route path="/verify-success" element={<VerifySuccess />} />
               <Route path="*" element={<Navigate to="/login" replace />} />
             </>
@@ -52,7 +52,7 @@ const App = () => {
               <Route path="/accesos-estadio" element={<AccesosEstadio />} />
               <Route path="/redes" element={<Redes />} />
               <Route path="/noticia/:id" element={<NoticiaDetalle />} /> {/* Ruta para detalles */}
-              <Route path="/logout" element={<Navigate to="/login" replace onClick={handleLogout} />} />
+              <Route path="/logout" element={<Navigate to="/login" replace />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </>
           )}
