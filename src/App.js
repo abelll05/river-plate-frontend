@@ -9,10 +9,12 @@ import AccesosEstadio from "./components/AccesosEstadio";
 import Redes from "./components/Redes";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import NoticiaDetalle from "./components/NoticiaDetalle"; 
-import Verify from "./components/Verify"; 
+import NoticiaDetalle from "./components/NoticiaDetalle";
+import Verify from "./components/Verify";
 import VerifySuccess from './components/VerifySuccess';
 import Footer from "./components/Footer";
+import ForgotPassword from "./components/ForgotPassword"; // Componente de Olvidé mi contraseña
+import ResetPassword from "./components/ResetPassword"; // Componente de Restablecer contraseña
 import './App.css';
 
 const App = () => {
@@ -40,6 +42,8 @@ const App = () => {
               <Route path="/register" element={<Register setIsAuthenticated={setIsAuthenticated} />} />
               <Route path="/verify/:token" element={<Verify />} />
               <Route path="/verify-success" element={<VerifySuccess />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Ruta para Olvidé mi contraseña */}
+              <Route path="/reset-password/:token" element={<ResetPassword />} /> {/* Ruta para Restablecer contraseña */}
               <Route path="*" element={<Navigate to="/login" replace />} />
             </>
           ) : (
