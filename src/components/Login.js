@@ -80,6 +80,12 @@ const Login = ({ setIsAuthenticated }) => {
             Regístrate aquí
           </span>
         </p>
+        <p className="auth-footer">
+          ¿Olvidaste tu contraseña?{' '}
+          <span className="auth-link" onClick={() => navigate('/forgot-password')}>
+            Restablecerla aquí
+          </span>
+        </p> {/* Enlace para olvidé mi contraseña */}
       </div>
     </div>
   );
