@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://river-plate-backend.onrender.com/api', 
+  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api', // Usar variable de entorno
 });
 
 api.interceptors.request.use(

@@ -1,28 +1,23 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import api from '../api/api'; // Usar api.js
 
 const Verify = () => {
   const navigate = useNavigate();
-  const { token } = useParams();  // Obtener el token de la URL
+  const { token } = useParams(); // Obtener el token de la URL
 
   useEffect(() => {
     const verifyEmail = async () => {
       try {
         // Llamada al backend para verificar el correo
-        const response = await fetch(`/api/auth/verify/${token}`, {
-          method: 'GET',
-        });
+        const response = await api.get(`/auth/verify/${token}`);
 
-        if (response.ok) {
-          // Si la verificación fue exitosa, redirigir al componente de éxito
-          navigate('/verify-success');
-        } else {
-          // Si el token no es válido o hubo algún error, redirigir al login
-          navigate('/login');
+        if (response.status === 200) {
+          navigate('/verify-success'); // Redirigir al éxito
         }
       } catch (error) {
-        console.error('Error al verificar el correo:', error);
-        navigate('/login');
+        console.error('Error al verificar el correo:', error.response?.data || error.message);
+        navigate('/login'); // Redirigir al login en caso de error
       }
     };
 
@@ -32,7 +27,7 @@ const Verify = () => {
   return (
     <div>
       <h2>Verificando tu correo...</h2>
-      <p>Por favor espera mientras verificamos tu cuenta.</p>
+      <p>Por favor, espera mientras verificamos tu cuenta.</p>
     </div>
   );
 };
