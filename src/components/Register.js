@@ -39,7 +39,7 @@ const Register = () => {
       if (response.ok) {
         setShowSuccess(true); // Mostrar notificación de éxito
         setTimeout(() => {
-          navigate('/login'); // Redirigir a la página de login después de 3 segundos
+          navigate('/login'); // Redirigir a la página de login
         }, 3000);
       } else {
         setError(data.error || 'Error al registrarse');
@@ -54,7 +54,7 @@ const Register = () => {
   return (
     <div className="auth-container">
       <div className="auth-box">
-        <h2>Registrar</h2>
+        <h2>Register</h2>
         {showSuccess && (
           <SuccessNotification
             message="¡Registro exitoso! Te hemos enviado un correo de confirmación."
