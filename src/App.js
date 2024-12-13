@@ -21,32 +21,30 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    // Verifica si el token existe en el localStorage
     const token = localStorage.getItem("token");
     setIsAuthenticated(!!token); 
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");  // Elimina el token al hacer logout
-    setIsAuthenticated(false);         // Actualiza el estado de autenticación
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
   };
 
   return (
     <Router>
-      {/* Mostrar el Navbar solo si el usuario está autenticado */}
       {isAuthenticated && <Navbar setIsAuthenticated={setIsAuthenticated} />}
       
       <div className="App-main">
         <Routes>
-          {/* Rutas públicas */}
+          {/* Rutas públicas que no requieren autenticación */}
           <Route path="/login" element={!isAuthenticated ? <Login setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/" />} />
           <Route path="/register" element={!isAuthenticated ? <Register setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/" />} />
           <Route path="/verify/:token" element={<Verify />} />
           <Route path="/verify-success" element={<VerifySuccess />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Ruta para Olvidé mi contraseña */}
-          <Route path="/reset-password/:token" element={<ResetPassword />} /> {/* Ruta para Restablecer contraseña */}
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
 
-          {/* Rutas protegidas */}
+          {/* Rutas protegidas que requieren autenticación */}
           <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
           <Route path="/historia" element={isAuthenticated ? <Historia /> : <Navigate to="/login" />} />
           <Route path="/plantel" element={isAuthenticated ? <Plantel /> : <Navigate to="/login" />} />
