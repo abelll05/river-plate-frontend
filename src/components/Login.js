@@ -5,18 +5,18 @@ import './Auth.css';
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false); 
-  const [error, setError] = useState(''); 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); 
-    setError(''); 
+    setLoading(true);
+    setError('');
 
     try {
       const response = await fetch(
-        'https://river-plate-backend.onrender.com/api/login', 
+        'https://river-plate-backend.onrender.com/api/login',
         {
           method: 'POST',
           headers: {
@@ -28,17 +28,19 @@ const Login = ({ setIsAuthenticated }) => {
       const data = await response.json();
 
       if (response.ok) {
+        // Si el inicio de sesión es exitoso
         localStorage.setItem('token', data.token);
         setIsAuthenticated(true);
-        navigate('/');
+        navigate('/'); // Redirigir al inicio
       } else {
+        // Si hay un error, mostrar el mensaje de error del servidor
         setError(data.error || 'Error al iniciar sesión');
       }
     } catch (error) {
       console.error('Error en el login:', error);
       setError('No se pudo conectar con el servidor. Intenta nuevamente.');
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -53,7 +55,7 @@ const Login = ({ setIsAuthenticated }) => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
+              placeholder="Introduce tu email"
               required
             />
           </div>
@@ -63,7 +65,7 @@ const Login = ({ setIsAuthenticated }) => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
+              placeholder="Introduce tu contraseña"
               required
             />
           </div>
