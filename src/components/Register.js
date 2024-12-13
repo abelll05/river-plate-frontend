@@ -1,23 +1,26 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
+import SuccessNotification from './SuccessNotification'; // Importar el componente de notificación
 
-const Register = ({ setIsAuthenticated }) => {
+const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState(''); // Para manejar el mensaje de éxito
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
+    setSuccessMessage('');
 
     try {
       const response = await fetch(
-        'https://river-plate-backend.onrender.com/api/register', // Asegúrate de que esta URL sea correcta
+        'https://river-plate-backend.onrender.com/api/register',
         {
           method: 'POST',
           headers: {
@@ -30,11 +33,13 @@ const Register = ({ setIsAuthenticated }) => {
       const data = await response.json();
 
       if (response.ok) {
-        // Registro exitoso
-        setIsAuthenticated(true);
-        navigate('/'); // Redirigir al inicio
+        // Mostrar mensaje de éxito usando SuccessNotification
+        setSuccessMessage(data.message || 'Usuario registrado con éxito. Verifica tu correo.');
+        setUsername('');
+        setEmail('');
+        setPassword('');
       } else {
-        // Error en el registro
+        // Manejar errores
         setError(data.error || 'Error al registrar el usuario');
       }
     } catch (error) {
@@ -86,6 +91,13 @@ const Register = ({ setIsAuthenticated }) => {
           {error && <p className="auth-error">{error}</p>}
         </form>
       </div>
+      {/* Mostrar el componente SuccessNotification si hay un mensaje de éxito */}
+      {successMessage && (
+        <SuccessNotification
+          message={successMessage}
+          onClose={() => setSuccessMessage('')} // Cerrar notificación
+        />
+      )}
     </div>
   );
 };
