@@ -13,8 +13,6 @@ import NoticiaDetalle from "./components/NoticiaDetalle";
 import Verify from "./components/Verify";
 import VerifySuccess from './components/VerifySuccess';
 import Footer from "./components/Footer";
-import ForgotPassword from "./components/ForgotPassword"; // Componente de Olvidé mi contraseña
-import ResetPassword from "./components/ResetPassword"; // Componente de Restablecer contraseña
 import './App.css';
 
 const App = () => {
