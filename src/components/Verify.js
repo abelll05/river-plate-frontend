@@ -11,9 +11,9 @@ const Verify = () => {
       try {
         // Llamada al backend para verificar el correo
         const response = await api.get(`/auth/verify/${token}`);
-
         if (response.status === 200) {
-          navigate('/verify-success'); // Redirigir al éxito
+          // Redirigir al componente de éxito
+          navigate('/verify-success');
         }
       } catch (error) {
         console.error('Error al verificar el correo:', error.response?.data || error.message);
@@ -21,13 +21,13 @@ const Verify = () => {
       }
     };
 
-    verifyEmail(); // Ejecutar la función de verificación
+    verifyEmail();
   }, [token, navigate]);
 
   return (
     <div>
       <h2>Verificando tu correo...</h2>
-      <p>Por favor, espera mientras verificamos tu cuenta.</p>
+      <p>Por favor espera mientras verificamos tu cuenta.</p>
     </div>
   );
 };
