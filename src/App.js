@@ -33,35 +33,35 @@ const App = () => {
   return (
     <Router>
       {isAuthenticated && <Navbar setIsAuthenticated={setIsAuthenticated} />}
-      
       <div className="App-main">
         <Routes>
-          {/* Rutas públicas que no requieren autenticación */}
-          <Route path="/login" element={!isAuthenticated ? <Login setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/" />} />
-          <Route path="/register" element={!isAuthenticated ? <Register setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/" />} />
-          <Route path="/verify/:token" element={<Verify />} />
-          <Route path="/verify-success" element={<VerifySuccess />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password/:token" element={<ResetPassword />} />
-
-          {/* Rutas protegidas que requieren autenticación */}
-          <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
-          <Route path="/historia" element={isAuthenticated ? <Historia /> : <Navigate to="/login" />} />
-          <Route path="/plantel" element={isAuthenticated ? <Plantel /> : <Navigate to="/login" />} />
-          <Route path="/socios" element={isAuthenticated ? <Socios /> : <Navigate to="/login" />} />
-          <Route path="/accesos-estadio" element={isAuthenticated ? <AccesosEstadio /> : <Navigate to="/login" />} />
-          <Route path="/redes" element={isAuthenticated ? <Redes /> : <Navigate to="/login" />} />
-          <Route path="/noticia/:id" element={isAuthenticated ? <NoticiaDetalle /> : <Navigate to="/login" />} />
-
-          {/* Ruta para logout */}
-          <Route path="/logout" element={<Navigate to="/login" replace />} />
-
-          {/* Ruta por defecto */}
-          <Route path="*" element={<Navigate to={isAuthenticated ? "/" : "/login"} />} />
+          {/* Rutas públicas */}
+          {!isAuthenticated ? (
+            <>
+              <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+              <Route path="/register" element={<Register setIsAuthenticated={setIsAuthenticated} />} />
+              <Route path="/verify/:token" element={<Verify />} />
+              <Route path="/verify-success" element={<VerifySuccess />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Ruta para Olvidé mi contraseña */}
+              <Route path="/reset-password/:token" element={<ResetPassword />} /> {/* Ruta para Restablecer contraseña */}
+              <Route path="*" element={<Navigate to="/login" replace />} />
+            </>
+          ) : (
+            <>
+              {/* Rutas protegidas */}
+              <Route path="/" element={<Home />} />
+              <Route path="/historia" element={<Historia />} />
+              <Route path="/plantel" element={<Plantel />} />
+              <Route path="/socios" element={<Socios />} />
+              <Route path="/accesos-estadio" element={<AccesosEstadio />} />
+              <Route path="/redes" element={<Redes />} />
+              <Route path="/noticia/:id" element={<NoticiaDetalle />} />
+              <Route path="/logout" element={<Navigate to="/login" replace />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </>
+          )}
         </Routes>
       </div>
-      
-      {/* Footer que se muestra en todas las páginas */}
       <Footer />
     </Router>
   );
