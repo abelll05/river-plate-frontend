@@ -1,136 +1,97 @@
 .redes-container {
-    padding: 20px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background-image: url('../assets/madrid.jpg'); 
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh; 
-    color: white; 
-  }
-  
-  h1 {
-    font-size: 2rem;
-    color: #d50032; 
-    margin-bottom: 20px;
-    text-transform: uppercase; 
+  padding: 100px 20px 20px; /* Compensa la altura del navbar */
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-image: url('../assets/madrid.jpg'); 
+  background-size: cover;
+  background-position: center;
+  min-height: calc(100vh - 80px); /* Ajusta la altura según el navbar */
+  color: white; 
+}
+
+h1 {
+  font-size: 2rem;
+  color: #d50032; 
+  margin-bottom: 20px;
+  text-transform: uppercase; 
+}
+
+.redes-titulo {
+  color: #d50032; 
+  border: 2px solid #d50032; 
+  padding: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.redes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.redes-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.redes-item:hover {
+  transform: scale(1.05);
+}
+
+.redes-icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  border-radius: 50%; 
+}
+
+.redes-item h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.redes-item p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .redes-titulo {
     font-size: 1.5rem; 
   }
-  
-  .redes-titulo {
-    color: #d50032; 
-    border: 2px solid #d50032; 
-    padding: 10px;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    display: inline-block;
-    text-transform: uppercase;
-  }
-  
+
   .redes-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column; 
+    gap: 10px; 
   }
-  
+
   .redes-item {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    background: #f9f9f9;
-    border-radius: 8px;
-    padding: 10px;
-    width: 300px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    width: 100%; 
   }
-  
-  .redes-item:hover {
-    transform: scale(1.05);
-  }
-  
-  .redes-icon {
-    width: 60px;
-    height: 60px;
-    margin-right: 15px;
-    border-radius: 50%; 
-  }
-  
-  .redes-item h2 {
-    font-size: 1.5rem;
-    color: #333;
-    margin: 0;
-  }
-  
-  .redes-item p {
-    font-size: 1rem;
-    color: #666;
-    margin: 0;
-  }
-  
+}
 
-  
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 1.8rem; 
-    }
-  
-    .redes-titulo {
-      font-size: 1.5rem; 
-    }
-  
-    .redes-grid {
-      flex-direction: column; 
-      gap: 10px; 
-    }
-  
-    .redes-item {
-      width: 100%; 
-    }
-  
-    .redes-icon {
-      width: 50px; 
-      height: 50px; 
-    }
-  
-    .redes-item h2 {
-      font-size: 1.3rem; 
-    }
-  
-    .redes-item p {
-      font-size: 0.9rem; 
-    }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .redes-item {
+    width: 45%; 
   }
-  
+}
 
-  @media (min-width: 768px) and (max-width: 1024px) {
-    .redes-item {
-      width: 45%; 
-    }
-  
-    .redes-item h2 {
-      font-size: 1.4rem; 
-    }
+@media (min-width: 1024px) {
+  .redes-item {
+    width: 30%; 
   }
-  
-
-  @media (min-width: 1024px) {
-    .redes-item {
-      width: 30%; 
-    }
-  
-    .redes-item h2 {
-      font-size: 1.6rem; 
-    }
-  }
-  
-
-  @media (min-width: 1500px) {
-    .redes-item {
-      width: 23%; 
-    }
-  }
-  
+}
