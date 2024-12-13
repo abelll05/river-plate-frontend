@@ -1,41 +1,74 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import './Auth.css';
 
 const ResetPassword = () => {
   const { token } = useParams();
-  const [newPassword, setNewPassword] = useState('');
-  const [message, setMessage] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Validar el token con el backend si es necesario
+  }, [token]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
+    setSuccessMessage('');
+
     try {
-      const response = await axios.post(`/api/auth/reset-password/${token}`, { newPassword });
-      setMessage(response.data.message);
-      setError('');
-    } catch (err) {
-      setError(err.response.data.error);
-      setMessage('');
+      const response = await fetch(
+        `https://river-plate-backend.onrender.com/api/reset-password/${token}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ password }),
+        }
+      );
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccessMessage('Contraseña restablecida con éxito');
+        setTimeout(() => navigate('/login'), 5000); // Redirigir después de 5 segundos
+      } else {
+        setError(data.error || 'Error al restablecer la contraseña');
+      }
+    } catch (error) {
+      console.error('Error en reset-password:', error);
+      setError('No se pudo conectar con el servidor.');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="auth-container">
-      <h2>Restablecer contraseña</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="password"
-          placeholder="Nueva contraseña"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Restablecer contraseña</button>
-      </form>
-      {message && <p className="success-message">{message}</p>}
-      {error && <p className="error-message">{error}</p>}
+      <div className="auth-box">
+        <h2>Restablecer Contraseña</h2>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="form-group">
+            <label>Nueva Contraseña</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Introduce tu nueva contraseña"
+              required
+            />
+          </div>
+          <button type="submit" className="auth-button" disabled={loading}>
+            {loading ? 'Restableciendo...' : 'Restablecer contraseña'}
+          </button>
+          {error && <p className="auth-error">{error}</p>}
+          {successMessage && <p className="auth-success">{successMessage}</p>}
+        </form>
+      </div>
     </div>
   );
 };
