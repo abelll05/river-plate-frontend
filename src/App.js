@@ -42,8 +42,6 @@ const App = () => {
               <Route path="/register" element={<Register setIsAuthenticated={setIsAuthenticated} />} />
               <Route path="/verify/:token" element={<Verify />} />
               <Route path="/verify-success" element={<VerifySuccess />} />
-              <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Ruta para Olvidé mi contraseña */}
-              <Route path="/reset-password/:token" element={<ResetPassword />} /> {/* Ruta para Restablecer contraseña */}
               <Route path="*" element={<Navigate to="/login" replace />} />
             </>
           ) : (
