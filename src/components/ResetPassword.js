@@ -1,76 +1,72 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import './Auth.css';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const ResetPassword = () => {
-  const { token } = useParams();
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
-  const navigate = useNavigate();
+function ResetPassword() {
+  const { token } = useParams(); // Esto captura el token de la URL
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    // Validar el token con el backend si es necesario
+    // Aquí puedes validar el token, si lo deseas
+    if (!token) {
+      setError("Token inválido.");
+    }
   }, [token]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError('');
-    setSuccessMessage('');
-
-    try {
-      const response = await fetch(
-        `https://river-plate-backend.onrender.com/api/reset-password/${token}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ password }),
-        }
-      );
-      const data = await response.json();
-
-      if (response.ok) {
-        setSuccessMessage('Contraseña restablecida con éxito');
-        setTimeout(() => navigate('/login'), 5000); // Redirigir después de 5 segundos
-      } else {
-        setError(data.error || 'Error al restablecer la contraseña');
-      }
-    } catch (error) {
-      console.error('Error en reset-password:', error);
-      setError('No se pudo conectar con el servidor.');
-    } finally {
-      setLoading(false);
+    if (password !== confirmPassword) {
+      setError("Las contraseñas no coinciden.");
+      return;
     }
+
+    // Enviar la nueva contraseña al backend
+    // Asegúrate de enviar el token junto con la nueva contraseña
+    fetch(`/reset-password/${token}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ password }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message) {
+          // Redirige a la página de login o muestra un mensaje de éxito
+          alert("Contraseña restablecida correctamente.");
+        }
+      })
+      .catch((err) => setError("Hubo un error al restablecer la contraseña."));
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-box">
-        <h2>Restablecer Contraseña</h2>
-        <form onSubmit={handleSubmit} className="auth-form">
-          <div className="form-group">
-            <label>Nueva Contraseña</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Introduce tu nueva contraseña"
-              required
-            />
-          </div>
-          <button type="submit" className="auth-button" disabled={loading}>
-            {loading ? 'Restableciendo...' : 'Restablecer contraseña'}
-          </button>
-          {error && <p className="auth-error">{error}</p>}
-          {successMessage && <p className="auth-success">{successMessage}</p>}
-        </form>
-      </div>
+    <div>
+      <h2>Restablecer contraseña</h2>
+      {error && <p>{error}</p>}
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Contraseña nueva:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Confirmar contraseña:</label>
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Restablecer contraseña</button>
+      </form>
     </div>
   );
-};
+}
 
 export default ResetPassword;
