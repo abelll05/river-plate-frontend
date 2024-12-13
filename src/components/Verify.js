@@ -9,14 +9,18 @@ const Verify = () => {
   useEffect(() => {
     const verifyEmail = async () => {
       try {
+        console.log('Token recibido desde la URL:', token); // Verificar el token recibido
         // Llamada al backend para verificar el correo
         const response = await api.get(`/auth/verify/${token}`);
+        console.log('Respuesta del backend:', response.data); // Verificar la respuesta del backend
+
         if (response.status === 200) {
-          // Redirigir al componente de éxito
-          navigate('/verify-success');
+          console.log('Verificación exitosa. Redirigiendo a /verify-success');
+          navigate('/verify-success'); // Redirigir al componente de éxito
         }
       } catch (error) {
         console.error('Error al verificar el correo:', error.response?.data || error.message);
+        console.log('Redirigiendo a /login debido a un error');
         navigate('/login'); // Redirigir al login en caso de error
       }
     };
