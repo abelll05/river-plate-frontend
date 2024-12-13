@@ -25,14 +25,15 @@ const Login = ({ setIsAuthenticated }) => {
           body: JSON.stringify({ email, password }),
         }
       );
-
       const data = await response.json();
 
       if (response.ok) {
+        // Si el inicio de sesión es exitoso
         localStorage.setItem('token', data.token);
         setIsAuthenticated(true);
-        navigate('/');
+        navigate('/'); // Redirigir al inicio
       } else {
+        // Si hay un error, mostrar el mensaje de error del servidor
         setError(data.error || 'Error al iniciar sesión');
       }
     } catch (error) {
@@ -54,7 +55,7 @@ const Login = ({ setIsAuthenticated }) => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
+              placeholder="Introduce tu email"
               required
             />
           </div>
@@ -64,14 +65,14 @@ const Login = ({ setIsAuthenticated }) => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
+              placeholder="Introduce tu contraseña"
               required
             />
           </div>
           <button type="submit" className="auth-button" disabled={loading}>
             {loading ? 'Iniciando sesión...' : 'Login'}
           </button>
-          {error && <p className="auth-error">{error}</p>}
+          {error && <p className="auth-error">{error}</p>} {/* Mostrar error */}
         </form>
         <p className="auth-footer">
           ¿No tienes cuenta?{' '}
