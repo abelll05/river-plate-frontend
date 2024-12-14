@@ -1,27 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../api/api'; // Usar api.js
 
 const Verify = () => {
+  const [message, setMessage] = useState('Verificando tu cuenta, por favor espera...');
   const navigate = useNavigate();
-  const { token } = useParams(); // Obtener el token de la URL
+  const { token } = useParams();
 
   useEffect(() => {
     const verifyEmail = async () => {
       try {
-        console.log('Token recibido desde la URL:', token); // Verificar el token recibido
-        // Llamada al backend para verificar el correo
+        console.log('Token recibido desde la URL:', token);
         const response = await api.get(`/auth/verify/${token}`);
-        console.log('Respuesta del backend:', response.data); // Verificar la respuesta del backend
 
         if (response.status === 200) {
-          console.log('Verificación exitosa. Redirigiendo a /verify-success');
-          navigate('/verify-success'); // Redirigir al componente de éxito
+          setMessage('¡Tu cuenta ha sido verificada exitosamente! Ahora puedes iniciar sesión.');
+          setTimeout(() => navigate('/login'), 3000); // Redirigir al login después de 3 segundos
         }
       } catch (error) {
         console.error('Error al verificar el correo:', error.response?.data || error.message);
-        console.log('Redirigiendo a /login debido a un error');
-        navigate('/login'); // Redirigir al login en caso de error
+        setMessage('Hubo un problema al verificar tu cuenta. Por favor, intenta nuevamente.');
+        setTimeout(() => navigate('/login'), 3000); // Redirigir al login después de 3 segundos
       }
     };
 
@@ -30,8 +29,7 @@ const Verify = () => {
 
   return (
     <div>
-      <h2>Verificando tu correo...</h2>
-      <p>Por favor espera mientras verificamos tu cuenta.</p>
+      <h2>{message}</h2>
     </div>
   );
 };
