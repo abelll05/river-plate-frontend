@@ -15,15 +15,15 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; 
+  min-height: 100vh; /* Asegura que ocupe todo el alto de la pantalla */
 }
 
 /* Contenido principal de la aplicación */
 .App-main {
-  flex: 1;
+  flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
   padding: 20px;
   padding-top: 80px; /* Compensa la altura del navbar */
-  padding-bottom: 80px; /* Compensa la altura del footer */
+  padding-bottom: 80px; /* Espacio para el footer */
   background-color: #fff;
   background-size: cover;
   background-position: center;
