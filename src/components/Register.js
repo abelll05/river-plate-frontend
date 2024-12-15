@@ -33,11 +33,16 @@ const Register = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Mostrar mensaje de éxito usando SuccessNotification
+        // Mostrar mensaje de éxito
         setSuccessMessage(data.message || 'Usuario registrado con éxito. Verifica tu correo.');
         setUsername('');
         setEmail('');
         setPassword('');
+
+        // Redirigir a la página de verificación
+        setTimeout(() => {
+          navigate('/verify-code', { state: { email } });
+        }, 2000);
       } else {
         // Manejar errores
         setError(data.error || 'Error al registrar el usuario');
