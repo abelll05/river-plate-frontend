@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import NoticiaDetalle from "./components/NoticiaDetalle";
 import Verify from "./components/Verify";
+import VerifyCode from "./components/VerifyCode";
 import VerifySuccess from "./components/VerifySuccess";
 import Footer from "./components/Footer";
 import { AnimatePresence, motion } from "framer-motion";
@@ -76,6 +77,19 @@ const App = () => {
                       transition={{ duration: 0.6 }}
                     >
                       <Verify />
+                    </motion.div>
+                  }
+                />
+                <Route
+                  path="/verify-code"
+                  element={
+                    <motion.div
+                      initial={{ opacity: 0, y: -100 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 100 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <VerifyCode />
                     </motion.div>
                   }
                 />
