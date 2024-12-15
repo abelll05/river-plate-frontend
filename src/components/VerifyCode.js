@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './Auth.css'; // Asegúrate de que el archivo CSS esté incluido
 
 const VerifyCode = () => {
   const [code, setCode] = useState('');
@@ -42,18 +43,28 @@ const VerifyCode = () => {
   };
 
   return (
-    <div>
-      <h2>Verificar cuenta</h2>
-      <p>Se ha enviado un código a tu correo: {email}</p>
-      <input
-        type="text"
-        placeholder="Ingresa el código de verificación"
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-      />
-      <button onClick={handleVerify}>Verificar</button>
-      {message && <p className="success">{message}</p>}
-      {error && <p className="error">{error}</p>}
+    <div className="auth-container">
+      <div className="auth-box">
+        <h2>Verificar cuenta</h2>
+        <p>Se ha enviado un código a tu correo: {email}</p>
+        <form onSubmit={(e) => { e.preventDefault(); handleVerify(); }} className="auth-form">
+          <div className="form-group">
+            <label>Código de Verificación</label>
+            <input
+              type="text"
+              placeholder="Ingresa el código de verificación"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="auth-button">
+            Verificar
+          </button>
+          {message && <p className="auth-footer success">{message}</p>}
+          {error && <p className="auth-footer error">{error}</p>}
+        </form>
+      </div>
     </div>
   );
 };
