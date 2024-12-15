@@ -2,6 +2,8 @@
   padding: 20px;
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  min-height: 100vh; /* Ajuste para que el contenido no se sobreponga al footer */
+  margin-bottom: 80px; /* Evitar que el footer tape el contenido */
 }
 
 h1 {
@@ -21,64 +23,58 @@ strong {
   font-weight: bold;
 }
 
-
-
-
 @media (max-width: 768px) {
   h1 {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
 
   p {
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
   }
 
   .historia-container {
-    padding: 15px; 
+    padding: 15px;
   }
 }
-
 
 @media (min-width: 768px) and (max-width: 1024px) {
   h1 {
-    font-size: 1.8rem; 
+    font-size: 1.8rem;
   }
 
   p {
-    font-size: 1rem; 
+    font-size: 1rem;
   }
 
   .historia-container {
-    padding: 20px; 
+    padding: 20px;
   }
 }
-
 
 @media (min-width: 1024px) {
   h1 {
-    font-size: 2rem; 
+    font-size: 2rem;
   }
 
   p {
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
   }
 
   .historia-container {
-    padding: 25px; 
+    padding: 25px;
   }
 }
 
-
 @media (min-width: 1500px) {
   h1 {
-    font-size: 2.5rem; 
+    font-size: 2.5rem;
   }
 
   p {
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
   }
 
   .historia-container {
-    padding: 30px; 
+    padding: 30px;
   }
 }

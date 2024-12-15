@@ -1,13 +1,13 @@
 h1 {
   text-align: center;
   margin-bottom: 20px;
-  color: #aa0000; 
+  color: #aa0000;
 }
 
 h2 {
   color: #aa0000;
   margin-top: 20px;
-  border-bottom: 2px solid #aa0000; 
+  border-bottom: 2px solid #aa0000;
   padding-bottom: 5px;
 }
 
@@ -19,30 +19,30 @@ ul {
 li {
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
-  font-size: 1rem; 
+  font-size: 1rem;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 li strong {
   color: #333;
-  font-size: 1.1rem; 
+  font-size: 1.1rem;
 }
 
 li span {
   color: #555;
-  font-size: 0.9rem; 
+  font-size: 0.9rem;
 }
-
 
 .plantel-container {
   padding: 20px;
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9; 
+  background-color: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  margin-bottom: 80px;
 }
-
 
 @media (max-width: 768px) {
   h1 {
@@ -58,7 +58,7 @@ li span {
   }
 
   li span {
-    font-size: 0.85rem; 
+    font-size: 0.85rem;
   }
 
   .plantel-container {

@@ -1,128 +1,125 @@
 .acceso-container {
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
+  min-height: 100vh;
+  margin-bottom: 80px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #000000;
+}
+
+.acceso-section {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 15px;
+}
+
+.acceso-section h2 {
+  color: #000000;
+  font-size: 1.5rem;
+}
+
+.acceso-section p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.acceso-section strong {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .acceso-container {
+    padding: 15px;
   }
-  
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .acceso-section {
+    margin: 15px 0;
+    padding: 10px;
+  }
+
+  .acceso-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .acceso-section p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .acceso-container {
+    padding: 20px;
+  }
+
   h1 {
     font-size: 2rem;
-    color: #000000;
   }
-  
+
   .acceso-section {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 10px;
     margin: 20px 0;
     padding: 15px;
   }
-  
+
   .acceso-section h2 {
-    color: #000000;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
-  
+
   .acceso-section p {
     font-size: 1rem;
-    color: #555;
   }
-  
-  .acceso-section strong {
-    font-weight: bold;
-  }
-  
+}
 
-  @media (max-width: 768px) {
-    .acceso-container {
-      padding: 15px; 
-    }
-  
-    h1 {
-      font-size: 1.8rem; 
-    }
-  
-    .acceso-section {
-      margin: 15px 0; 
-      padding: 10px; 
-    }
-  
-    .acceso-section h2 {
-      font-size: 1.3rem; 
-    }
-  
-    .acceso-section p {
-      font-size: 0.9rem; 
-    }
+@media (min-width: 1024px) {
+  .acceso-container {
+    padding: 30px;
   }
-  
 
-  @media (min-width: 768px) and (max-width: 1024px) {
-    .acceso-container {
-      padding: 20px; 
-    }
-  
-    h1 {
-      font-size: 2rem; 
-    }
-  
-    .acceso-section {
-      margin: 20px 0; 
-      padding: 15px; 
-    }
-  
-    .acceso-section h2 {
-      font-size: 1.4rem; 
-    }
-  
-    .acceso-section p {
-      font-size: 1rem; 
-    }
+  h1 {
+    font-size: 2.5rem;
   }
-  
 
-  @media (min-width: 1024px) {
-    .acceso-container {
-      padding: 30px; 
-    }
-  
-    h1 {
-      font-size: 2.5rem; 
-    }
-  
-    .acceso-section {
-      margin: 25px 0; 
-      padding: 20px; 
-    }
-  
-    .acceso-section h2 {
-      font-size: 1.6rem; 
-    }
-  
-    .acceso-section p {
-      font-size: 1.1rem; 
-    }
+  .acceso-section {
+    margin: 25px 0;
+    padding: 20px;
   }
-  
 
-  @media (min-width: 1500px) {
-    .acceso-container {
-      padding: 40px; 
-    }
-  
-    h1 {
-      font-size: 3rem; 
-    }
-  
-    .acceso-section {
-      margin: 30px 0; 
-      padding: 25px; 
-    }
-  
-    .acceso-section h2 {
-      font-size: 1.8rem; 
-    }
-  
-    .acceso-section p {
-      font-size: 1.2rem; 
-    }
+  .acceso-section h2 {
+    font-size: 1.6rem;
   }
-  
+
+  .acceso-section p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1500px) {
+  .acceso-container {
+    padding: 40px;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .acceso-section {
+    margin: 30px 0;
+    padding: 25px;
+  }
+
+  .acceso-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .acceso-section p {
+    font-size: 1.2rem;
+  }
+}
