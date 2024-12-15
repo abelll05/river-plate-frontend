@@ -1,25 +1,24 @@
 .home-container {
   padding: 20px;
   text-align: center;
-  background-image: url('../assets/madrid.jpg'); 
+  background-image: url('../assets/madrid.jpg');
   background-size: cover;
   background-position: center;
-  min-height: 100vh; 
-  color: white; 
+  min-height: 100vh;
+  color: white;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #fff;
-  text-transform: uppercase; 
-  font-size: 1.5rem; 
+  text-transform: uppercase;
 }
 
 .bienvenidos {
-  color: #d50032; 
-  border: 2px solid #d50032; 
+  color: #d50032;
+  border: 2px solid #d50032;
   padding: 10px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 20px;
   display: inline-block;
@@ -38,7 +37,7 @@ h1 {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff; 
+  background-color: #fff;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -49,44 +48,37 @@ h1 {
 
 .news-image {
   width: 100%;
-  height: 200px;
+  height: auto;
+  max-height: 200px;
   object-fit: cover;
 }
 
 .news-content {
   padding: 15px;
-  background-color: #fff; 
+  background-color: #fff;
 }
 
 .news-content h3 {
-  font-size: 1.5rem;
-  color: #000000;
+  font-size: 1.2rem;
+  color: #000;
 }
 
 .news-content p {
   color: #555;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 10px 0;
 }
 
 .leer-mas-text {
-  font-size: 14px;
+  font-size: 0.9rem;
   color: #007bff;
-  font-weight: bold; /* Negrita */
-  text-decoration: underline; /* Subrayado */
+  font-weight: bold;
+  text-decoration: underline;
   margin-top: 10px;
 }
 
 .leer-mas-text:hover {
-  text-decoration: none; /* El subrayado desaparece al pasar el mouse */
-}
-
-.news-link {
-  display: none; 
-}
-
-.news-link:hover {
-  color: #cc0000;
+  text-decoration: none;
 }
 
 body {
@@ -99,38 +91,58 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .navbar-menu {
-    flex-direction: column;
-    align-items: center;
+  .home-container {
+    padding: 10px;
   }
 
-  .navbar-logo {
+  h1 {
     font-size: 1.5rem;
   }
 
-  .navbar-link {
+  .bienvenidos {
     font-size: 1.2rem;
-    margin-bottom: 10px;
+    padding: 8px;
   }
 
   .news-grid {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .news-item {
+    margin-bottom: 10px;
+  }
+
+  .news-content {
+    padding: 10px;
+  }
+
+  .news-content h3 {
+    font-size: 1rem;
+  }
+
+  .news-content p {
+    font-size: 0.8rem;
+  }
+
+  .leer-mas-text {
+    font-size: 0.8rem;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .news-grid {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .navbar-link {
-    font-size: 1.4rem;
+  .news-content h3 {
+    font-size: 1.1rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .news-grid {
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .navbar-link {
