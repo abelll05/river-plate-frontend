@@ -1,3 +1,4 @@
+/* Estilos globales */
 body {
   margin: 0;
   padding: 0;
@@ -5,8 +6,11 @@ body {
   display: flex;
   flex-direction: column;
   font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  background-color: #f4f4f9; /* Fondo claro para toda la app */
 }
 
+/* Contenedor principal de la aplicación */
 .App {
   text-align: center;
   display: flex;
@@ -14,13 +18,18 @@ body {
   min-height: 100vh; 
 }
 
+/* Contenido principal de la aplicación */
 .App-main {
   flex: 1;
+  padding: 20px;
   padding-top: 80px; /* Compensa la altura del navbar */
-  padding-bottom: 80px; 
-  min-height: calc(100vh - 80px); /* Ajusta según el navbar */
+  padding-bottom: 80px; /* Compensa la altura del footer */
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
 }
 
+/* Footer */
 footer {
   background-color: #282c34;
   color: white;
@@ -28,8 +37,10 @@ footer {
   padding: 10px 0;
   width: 100%;
   position: relative;
+  z-index: 1;
 }
 
+/* Responsividad */
 @media (max-width: 480px) {
   .App-main {
     padding-top: 60px;
