@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ff0000; /* Fondo oscuro del navbar */
+  background-color: #ff0000; /* Fondo del navbar */
   padding: 10px 20px;
   position: fixed;
   top: 0;
@@ -19,7 +19,7 @@
 }
 
 .menu-icon {
-  display: flex;
+  display: none; /* Oculto por defecto, se muestra en pantallas pequeñas */
   flex-direction: column;
   justify-content: space-between;
   width: 25px;
@@ -105,18 +105,18 @@
   padding: 10px 20px;
   cursor: pointer;
   position: absolute;
-  top: 1px;
+  top: 10px;
   right: 10px;
 }
 
 /* Estilo del botón Logout */
 .logout-container {
-  margin-top: 525px; /* Empuja el botón hacia abajo */
+  margin-top: auto;
   padding: 10px;
 }
 
 .logout-btn {
-  background-color: #ffffff; /* Rojo oscuro */
+  background-color: #ffffff; /* Botón blanco */
   color: rgb(255, 0, 0);
   font-size: 16px;
   padding: 10px;
@@ -129,9 +129,58 @@
 }
 
 .logout-btn:hover {
-  background-color: #000000; /* Rojo más oscuro al pasar el ratón */
+  background-color: #000000; /* Negro al pasar el ratón */
 }
 
 .logout-btn:focus {
   outline: none;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex; /* Mostrar icono del menú */
+  }
+
+  .menu {
+    width: 200px; /* Reducir el ancho del menú en pantallas pequeñas */
+  }
+
+  .menu ul li a {
+    font-size: 18px;
+  }
+
+  .navbar-left .logo {
+    font-size: 16px; /* Reducir tamaño del logo */
+  }
+}
+
+@media (min-width: 769px) {
+  .menu {
+    position: static;
+    flex-direction: row;
+    height: auto;
+    width: auto;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    display: flex;
+  }
+
+  .menu ul {
+    display: flex;
+  }
+
+  .menu ul li {
+    padding: 0 15px;
+    border: none;
+  }
+
+  .menu ul li a {
+    font-size: 16px;
+  }
+
+  .menu-icon {
+    display: none; /* Ocultar icono del menú en pantallas grandes */
+  }
 }

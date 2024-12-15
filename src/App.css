@@ -30,6 +30,7 @@ footer {
   position: relative;
 }
 
+/* Estilos responsivos */
 @media (max-width: 480px) {
   .App-main {
     padding-top: 60px;
