@@ -39,9 +39,10 @@ const Register = () => {
         setEmail('');
         setPassword('');
 
-        // Redirigir a la página de verificación
+        // Guardar el correo en localStorage y redirigir a la página de verificación
+        localStorage.setItem('userEmail', email);
         setTimeout(() => {
-          navigate('/verify-code', { state: { email } });
+          navigate('/verify-code');
         }, 2000);
       } else {
         // Manejar errores
