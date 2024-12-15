@@ -47,15 +47,12 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
               <li><Link to="/socios" onClick={closeMenu}>Socios</Link></li>
               <li><Link to="/accesos-estadio" onClick={closeMenu}>Accesos Estadio</Link></li>
               <li><Link to="/redes" onClick={closeMenu}>Redes</Link></li>
+              <li>
+                <button className="logout-btn" onClick={handleLogout}>Logout</button>
+              </li>
             </>
           )}
         </ul>
-
-        {isAuthenticated && (
-          <div className="logout-container">
-            <button className="logout-btn" onClick={handleLogout}>Logout</button>
-          </div>
-        )}
       </div>
     </nav>
   );
