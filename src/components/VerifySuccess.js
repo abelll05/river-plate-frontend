@@ -13,10 +13,11 @@ const VerifySuccess = () => {
   }, [navigate]);
 
   return (
-    <div style={{ textAlign: 'center', padding: '20px' }}>
+    <main className="verify-success-container">
       <h2>¡Tu correo ha sido verificado exitosamente!</h2>
       <p>Ahora puedes iniciar sesión con tus credenciales.</p>
-    </div>
+      <p>Serás redirigido al inicio de sesión en breve...</p>
+    </main>
   );
 };
 
