@@ -111,7 +111,7 @@
 
 /* Estilo del botón Logout */
 .logout-container {
-  margin-top: 525px; /* Empuja el botón hacia abajo */
+  margin-top: auto; /* Usa flexbox para empujar el logout al final del menú */
   padding: 10px;
 }
 
@@ -134,4 +134,16 @@
 
 .logout-btn:focus {
   outline: none;
+}
+
+/* Ajustes para pantallas móviles */
+@media (max-width: 768px) {
+  .menu ul li a {
+    font-size: 18px;
+  }
+
+  .logout-container {
+    padding: 20px 20px;
+    margin-top: auto; /* Asegura que el botón quede al final */
+  }
 }
