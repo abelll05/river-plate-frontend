@@ -111,12 +111,12 @@
 
 /* Estilo del botón Logout */
 .logout-container {
-  margin-top: auto; /* Usa flexbox para empujar el logout al final del menú */
+  margin-top: auto; /* Empuja el botón de Logout hacia abajo */
   padding: 10px;
 }
 
 .logout-btn {
-  background-color: #ffffff; /* Rojo oscuro */
+  background-color: #ffffff;
   color: rgb(255, 0, 0);
   font-size: 16px;
   padding: 10px;
@@ -134,16 +134,4 @@
 
 .logout-btn:focus {
   outline: none;
-}
-
-/* Ajustes para pantallas móviles */
-@media (max-width: 768px) {
-  .menu ul li a {
-    font-size: 18px;
-  }
-
-  .logout-container {
-    padding: 20px 20px;
-    margin-top: auto; /* Asegura que el botón quede al final */
-  }
 }
