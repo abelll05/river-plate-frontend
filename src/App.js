@@ -28,7 +28,6 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* Renderizar el Navbar solo si el usuario está autenticado */}
       {isAuthenticated && (
         <Navbar
           isAuthenticated={isAuthenticated}

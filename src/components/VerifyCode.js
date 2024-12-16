@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Auth.css'; // Asegúrate de que el archivo CSS esté incluido
+import './Auth.css'; 
 
 const VerifyCode = () => {
   const [code, setCode] = useState('');
@@ -11,7 +11,6 @@ const VerifyCode = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Recuperar el email desde localStorage
     const storedEmail = localStorage.getItem('userEmail');
     if (storedEmail) {
       setEmail(storedEmail);
@@ -35,8 +34,8 @@ const VerifyCode = () => {
       setMessage(response.data.message);
       setTimeout(() => {
         navigate('/login');
-        localStorage.removeItem('userEmail'); // Eliminar email de localStorage después de la verificación
-      }, 2000); // Redirigir al login después de verificar
+        localStorage.removeItem('userEmail'); 
+      }, 2000); 
     } catch (error) {
       setError(error.response?.data?.error || 'Error al verificar el código');
     }

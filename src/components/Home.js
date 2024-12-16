@@ -76,7 +76,7 @@ const Home = () => {
           <div
             key={noticia.id}
             className="news-item"
-            onClick={() => handleNavigate(noticia.id)} // Redirige al detalle al hacer clic
+            onClick={() => handleNavigate(noticia.id)} 
           >
             <img src={noticia.img} alt={noticia.title} className="news-image" />
             <div className="news-content">

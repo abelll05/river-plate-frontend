@@ -16,9 +16,9 @@ body {
 
 .App-main {
   flex: 1;
-  padding-top: 80px; /* Compensa la altura del navbar */
+  padding-top: 80px; 
   padding-bottom: 80px; 
-  min-height: calc(100vh - 80px); /* Ajusta según el navbar */
+  min-height: calc(100vh - 80px); 
 }
 
 footer {

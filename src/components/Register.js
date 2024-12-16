@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
-import SuccessNotification from './SuccessNotification'; // Importar el componente de notificación
+import SuccessNotification from './SuccessNotification'; 
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -9,7 +9,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState(''); // Para manejar el mensaje de éxito
+  const [successMessage, setSuccessMessage] = useState(''); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -33,19 +33,16 @@ const Register = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Mostrar mensaje de éxito
         setSuccessMessage(data.message || 'Usuario registrado con éxito. Verifica tu correo.');
         setUsername('');
         setEmail('');
         setPassword('');
 
-        // Guardar el correo en localStorage y redirigir a la página de verificación
         localStorage.setItem('userEmail', email);
         setTimeout(() => {
           navigate('/verify-code');
         }, 2000);
       } else {
-        // Manejar errores
         setError(data.error || 'Error al registrar el usuario');
       }
     } catch (error) {
@@ -109,7 +106,7 @@ const Register = () => {
       {successMessage && (
         <SuccessNotification
           message={successMessage}
-          onClose={() => setSuccessMessage('')} // Cerrar notificación
+          onClose={() => setSuccessMessage('')} 
         />
       )}
     </div>

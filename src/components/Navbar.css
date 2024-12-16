@@ -1,15 +1,14 @@
-/* Navbar general */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ff0000; /* Fondo oscuro del navbar */
+  background-color: #ff0000; 
   padding: 10px 20px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px; /* Define la altura del navbar */
+  height: 80px; 
   z-index: 1000;
 }
 
@@ -54,11 +53,10 @@
   text-decoration: none;
 }
 
-/* Menú desplegable */
 .menu {
   position: fixed;
   top: 0;
-  left: -250px; /* Oculto inicialmente */
+  left: -250px; 
   width: 250px;
   height: 100vh;
   background-color: #FF0000;
@@ -97,7 +95,6 @@
   background-color: #000000;
 }
 
-/* Cruz para cerrar el menú */
 .close-icon {
   font-size: 24px;
   color: white;
@@ -109,9 +106,8 @@
   right: 10px;
 }
 
-/* Estilo del botón Logout */
 .logout-container {
-  margin-top: auto; /* Empuja el botón de Logout hacia abajo */
+  margin-top: auto; 
   padding: 10px;
 }
 
@@ -129,7 +125,7 @@
 }
 
 .logout-btn:hover {
-  background-color: #000000; /* Rojo más oscuro al pasar el ratón */
+  background-color: #000000; 
 }
 
 .logout-btn:focus {

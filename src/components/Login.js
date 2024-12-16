@@ -28,12 +28,10 @@ const Login = ({ setIsAuthenticated }) => {
       const data = await response.json();
 
       if (response.ok) {
-        // Si el inicio de sesión es exitoso
         localStorage.setItem('token', data.token);
         setIsAuthenticated(true);
-        navigate('/'); // Redirigir al inicio
+        navigate('/'); 
       } else {
-        // Si hay un error, mostrar el mensaje de error del servidor
         setError(data.error || 'Error al iniciar sesión');
       }
     } catch (error) {

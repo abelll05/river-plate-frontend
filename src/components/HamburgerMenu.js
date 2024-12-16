@@ -1,31 +1,28 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Importar useNavigate
-import './HamburgerMenu.css'; // Archivo de estilos CSS
+import { Link, useNavigate } from "react-router-dom"; 
+import './HamburgerMenu.css'; 
 
 const HamburgerMenu = ({ isAuthenticated, setIsAuthenticated }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate(); // Hook para la redirección
+  const navigate = useNavigate(); 
 
-  // Función para alternar el estado del menú
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  // Función para cerrar el menú al hacer clic en una opción
   const handleMenuClick = () => {
-    setIsOpen(false); // Cierra el menú
+    setIsOpen(false); 
   };
 
-  // Función de logout
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Eliminar el token
-    setIsAuthenticated(false); // Actualizar el estado de autenticación
-    navigate("/login"); // Redirigir a login
+    localStorage.removeItem("token"); 
+    setIsAuthenticated(false); 
+    navigate("/login"); 
   };
 
   return (
     <div className={`hamburger-menu ${isOpen ? "open" : ""}`}>
-      {/* Icono de las tres barras o X (dependiendo del estado del menú) */}
+      {/* Icono de las tres barras*/}
       <div className="hamburger-icon" onClick={toggleMenu}>
         <div className={`bar ${isOpen ? "open" : ""}`}></div>
         <div className={`bar ${isOpen ? "open" : ""}`}></div>

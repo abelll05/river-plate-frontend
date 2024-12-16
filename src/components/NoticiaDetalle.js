@@ -101,8 +101,8 @@ Los cupos que faltan definirse
 ];
 
 const NoticiaDetalle = () => {
-  const { id } = useParams(); // Captura el parámetro dinámico de la URL
-  const noticia = noticias.find((n) => n.id === parseInt(id)); // Busca la noticia por ID
+  const { id } = useParams(); 
+  const noticia = noticias.find((n) => n.id === parseInt(id)); 
 
   if (!noticia) {
     return (

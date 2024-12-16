@@ -1,8 +1,7 @@
-/* Contenedor del icono de las tres barras */
 .hamburger-menu {
     position: fixed;
-    top: 15px; /* Más separación del borde superior */
-    left: 20px; /* Ajusta la posición del icono */
+    top: 15px; 
+    left: 20px; 
     z-index: 1000;
     cursor: pointer;
 }
@@ -34,16 +33,15 @@
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Menú desplegable */
 .menu {
     position: fixed;
     top: 0;
-    left: -300px; /* Menú oculto fuera de la pantalla */
-    width: 300px; /* Ancho del menú desplegable */
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    background-color: #ff0505; /* Color de fondo del menú */
+    left: -300px; 
+    width: 300px; 
+    height: 100vh; 
+    background-color: #ff0505; 
     color: white;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Sombra para un mejor diseño */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); 
     transition: left 0.5s ease;
     display: flex;
     flex-direction: column;
@@ -51,7 +49,7 @@
 }
 
 .menu.open {
-    left: 0; /* Muestra el menú */
+    left: 0; 
 }
 
 .menu ul {
@@ -66,7 +64,7 @@
 }
 
 .menu ul li:hover {
-    background-color: #ff0000; /* Color de fondo al pasar el ratón */
+    background-color: #ff0000; 
 }
 
 .menu ul li a {
@@ -76,9 +74,8 @@
     display: block;
 }
 
-/* Contenedor del botón Logout */
 .logout-container {
-    margin-top: auto; /* Coloca el botón Logout en la parte inferior */
+    margin-top: auto; 
     padding: 20px;
     text-align: center;
 }
@@ -92,5 +89,5 @@
 }
 
 .logout-container a:hover {
-    background-color: #ff0000; /* Fondo al pasar el ratón */
+    background-color: #ff0000; 
 }
