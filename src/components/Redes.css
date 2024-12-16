@@ -2,7 +2,7 @@
   padding: 100px 20px 20px; /* Compensa la altura del navbar */
   text-align: center;
   font-family: Arial, sans-serif;
-  background-image: url('../assets/madrid.jpg'); 
+  background-image: url('../assets/monumental.jpg'); 
   background-size: cover;
   background-position: center;
   min-height: calc(100vh - 80px); /* Ajusta la altura según el navbar */

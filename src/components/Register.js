@@ -95,6 +95,14 @@ const Register = () => {
             {loading ? 'Registrando...' : 'Registrarse'}
           </button>
           {error && <p className="auth-error">{error}</p>}
+
+          {/* Enlace para ir al Login debajo del botón de registro */}
+          <p className="auth-footer">
+            ¿Ya tienes cuenta?{' '}
+            <span className="auth-link" onClick={() => navigate('/login')}>
+              Iniciar sesión
+            </span>
+          </p>
         </form>
       </div>
       {/* Mostrar el componente SuccessNotification si hay un mensaje de éxito */}
