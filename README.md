@@ -5,6 +5,8 @@ Este es el frontend de la aplicación de gestión de River Plate, desarrollado c
 
 Además, permite a los usuarios registrarse, iniciar sesión y recibir codigos de verifiacion por correo electrónico.
 
+Aclaracion, cuando te logeas o registras en el fronted deplegado por render, generalmente lo hace rapido pero hay veces que relentiza el servidor por 30 segundos aproximandente.
+
 ## Librerías Usadas
 - `react`: Librería para construir interfaces de usuario basadas en componentes.
 - `react-dom`: Librería para interactuar con el DOM en aplicaciones React.
