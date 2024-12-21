@@ -67,7 +67,6 @@ La grandeza de La Maquina de River, no obstante, no se encuentra en una multipli
 
 A ese River, al que sólo el tiempo parece haberle dado la razón, marcó la historia del fútbol argentino.
       </p>
-      {/* agregar mas info */}
     </div>
   );
 };

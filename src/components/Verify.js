@@ -4,9 +4,9 @@ import api from '../api/api'; // Archivo para realizar llamadas al backend
 
 const Verify = () => {
   const navigate = useNavigate();
-  const { token } = useParams(); // Obtener el token de la URL
-  const [loading, setLoading] = useState(true); // Indicador de carga
-  const [errorMessage, setErrorMessage] = useState(''); // Mensaje de error
+  const { token } = useParams(); 
+  const [loading, setLoading] = useState(true); 
+  const [errorMessage, setErrorMessage] = useState(''); 
 
   useEffect(() => {
     const verifyEmail = async () => {
@@ -17,15 +17,14 @@ const Verify = () => {
       }
 
       try {
-        console.log('Token recibido desde la URL:', token); // Verificar el token recibido
+        console.log('Token recibido desde la URL:', token); 
 
-        // Llamada al backend para verificar el correo
         const response = await api.get(`/auth/verify/${token}`);
-        console.log('Respuesta del backend:', response.data); // Verificar la respuesta del backend
+        console.log('Respuesta del backend:', response.data); 
 
         if (response.status === 200) {
           console.log('Verificación exitosa. Redirigiendo a /verify-success');
-          navigate('/verify-success'); // Redirigir al componente de éxito
+          navigate('/verify-success'); 
         } else {
           setErrorMessage('No se pudo verificar el correo. Inténtalo de nuevo.');
         }
@@ -33,7 +32,7 @@ const Verify = () => {
         console.error('Error al verificar el correo:', error.response?.data || error.message);
         setErrorMessage('Token inválido o expirado. Por favor solicita un nuevo enlace.');
       } finally {
-        setLoading(false); // Detener el indicador de carga
+        setLoading(false); 
       }
     };
 

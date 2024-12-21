@@ -37,7 +37,6 @@ const App = () => {
       <div className={`App-main ${isAuthenticated ? "authenticated" : ""}`}>
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
-            {/* Rutas públicas */}
             {!isAuthenticated ? (
               <>
                 <Route
@@ -109,7 +108,6 @@ const App = () => {
               </>
             ) : (
               <>
-                {/* Rutas protegidas */}
                 <Route
                   path="/"
                   element={

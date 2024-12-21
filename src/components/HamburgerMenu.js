@@ -22,24 +22,20 @@ const HamburgerMenu = ({ isAuthenticated, setIsAuthenticated }) => {
 
   return (
     <div className={`hamburger-menu ${isOpen ? "open" : ""}`}>
-      {/* Icono de las tres barras*/}
       <div className="hamburger-icon" onClick={toggleMenu}>
         <div className={`bar ${isOpen ? "open" : ""}`}></div>
         <div className={`bar ${isOpen ? "open" : ""}`}></div>
         <div className={`bar ${isOpen ? "open" : ""}`}></div>
       </div>
 
-      {/* Cruz para cerrar la barra */}
       {isOpen && (
         <div className="close-menu" onClick={toggleMenu}>
           &times;
         </div>
       )}
 
-      {/* Menú desplegable */}
       <div className={`menu ${isOpen ? "open" : ""}`}>
         <ul>
-          {/* Rutas públicas */}
           {!isAuthenticated ? (
             <>
               <li><Link to="/login" onClick={handleMenuClick}>Login</Link></li>
@@ -47,7 +43,6 @@ const HamburgerMenu = ({ isAuthenticated, setIsAuthenticated }) => {
             </>
           ) : (
             <>
-              {/* Rutas protegidas */}
               <li><Link to="/" onClick={handleMenuClick}>Home</Link></li>
               <li><Link to="/historia" onClick={handleMenuClick}>Historia</Link></li>
               <li><Link to="/plantel" onClick={handleMenuClick}>Plantel</Link></li>
@@ -58,7 +53,6 @@ const HamburgerMenu = ({ isAuthenticated, setIsAuthenticated }) => {
           )}
         </ul>
 
-        {/* Botón de Logout */}
         {isAuthenticated && (
           <div className="logout-container">
             <button onClick={handleLogout}>Logout</button>

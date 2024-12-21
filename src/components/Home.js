@@ -82,7 +82,7 @@ const Home = () => {
             <div className="news-content">
               <h3>{noticia.title}</h3>
               <p>{noticia.desc}</p>
-              <p className="leer-mas-text">Haga click en la noticia para ver más</p> {/* Nuevo texto */}
+              <p className="leer-mas-text">Haga click en la noticia para ver más</p> 
             </div>
           </div>
         ))}

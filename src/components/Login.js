@@ -70,7 +70,7 @@ const Login = ({ setIsAuthenticated }) => {
           <button type="submit" className="auth-button" disabled={loading}>
             {loading ? 'Iniciando sesión...' : 'Login'}
           </button>
-          {error && <p className="auth-error">{error}</p>} {/* Mostrar error */}
+          {error && <p className="auth-error">{error}</p>} 
         </form>
         <p className="auth-footer">
           ¿No tienes cuenta?{' '}

@@ -2,8 +2,8 @@
   padding: 20px;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  min-height: 100vh; /* Ajuste para que el contenido no se sobreponga al footer */
-  margin-bottom: 80px; /* Evitar que el footer tape el contenido */
+  min-height: 100vh; 
+  margin-bottom: 80px; 
 }
 
 h1 {
